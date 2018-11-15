@@ -1,0 +1,32 @@
+.nav-top-background{
+    width: 320px;
+    height: 8vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.menu-icon{
+    /* padding: 2px; */
+    /* margin-left: 5px; */
+    width: 40px;
+    height: 40px;
+}
+
+.menu-icon-button{
+    width: 40px;
+    height: 40px;
+}
+
+#menu-icon-image{
+    width: 40px;
+    height: 40px;
+}
+
+.channel-name{
+    padding: 2px;
+    width: 280px;
+    height: 40px;
+}
+
