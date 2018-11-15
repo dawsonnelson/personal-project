@@ -1,0 +1,91 @@
+
+@media(max-with: 375px){
+    .InputBar-Background{
+        background-color: #36393F;
+        height: 40px;
+        margin-top: 15px;
+    
+    }
+    
+    .inputs{
+        /* margin-top: 10px; */
+        /* height: 400px; */
+        /* flex: left; */
+    }
+    
+    .picture-input-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .picture-input-button-image{
+        width: 37px;
+        height: 40px;
+    }
+    
+    .text-input{
+        float: left;
+        height: 40px;
+        width: 234px;
+        border-left: 3px solid;
+        border-right: 3px solid;
+        overflow: scroll;
+    }
+    
+    .enter-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+@media(max-width: 320px){
+    .InputBar-Background{
+        background-color: #36393F;
+        height: 40px;
+        margin-top: 15px;
+    
+    }
+    
+    .inputs{
+        /* margin-top: 10px; */
+        /* height: 400px; */
+        /* flex: left; */
+    }
+    
+    .picture-input-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .picture-input-button-image{
+        width: 37px;
+        height: 40px;
+    }
+    
+    .text-input{
+        float: left;
+        height: 40px;
+        width: 234px;
+        border-left: 3px solid;
+        border-right: 3px solid;
+        overflow: scroll;
+    }
+    
+    .enter-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 40px;
+        height: 40px;
+    }
+}

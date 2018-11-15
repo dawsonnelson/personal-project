@@ -1,4 +1,4 @@
-#app{
+/* #app{
     background-color: white;
     min-height: 100%;
  }
@@ -17,7 +17,6 @@
 .log-box{
     width: 33%;
     height: 45%;
-    /* margin: 0 auto; */
     margin-top: 14.0625%;
     padding: 10px;
     position: relative;
@@ -33,16 +32,11 @@
 
 .logo {
     margin-top: 20px;
-    /* margin-left: 20px; */
 }
 
-/* .auth-helo{
-    text-align: center
-} */
 
 
 .title{
-    /* margin-right: px; */
     font-size: 90px;
 
 }
@@ -59,7 +53,7 @@
     height: 40px;
     margin-top: 10px;
 
-}
+} */
 
 @media (max-width: 2560px){
 

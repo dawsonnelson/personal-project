@@ -14,6 +14,7 @@ export default (
 
     <Switch>
         <Route exact path = '/' component={Main}/>
+        <Route path = '/Main' component={Auth}/>
 
     </Switch>
 )

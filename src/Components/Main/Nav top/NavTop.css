@@ -1,32 +1,68 @@
-.nav-top-background{
-    width: 320px;
-    height: 8vh;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
+
+@media(max-width: 375px){
+    .nav-top-background{
+        width: 375px;
+        height: 8vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+    
+    .menu-icon{
+        width: 51.75px;
+        height: 45px;
+    }
+    
+    .menu-icon-button{
+        width: 51.75px;
+        height: 45px;
+        padding:0;
+        
+    }
+    
+    #menu-icon-image{
+        width: 49.45px;
+        height: 43px;
+    }
+    
+    .channel-name{
+        padding: 2px;
+        width: 322px;
+        height: 40px;
+    }
 }
 
-.menu-icon{
-    /* padding: 2px; */
-    /* margin-left: 5px; */
-    width: 40px;
-    height: 40px;
+@media(max-width: 320px){
+    .nav-top-background{
+        width: 320px;
+        height: 8vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+    
+    .menu-icon{
+        width: 45px;
+        height: 45px;
+    }
+    
+    .menu-icon-button{
+        width: 45px;
+        height: 45px;
+        padding:0;
+        
+    }
+    
+    #menu-icon-image{
+        width: 43px;
+        height: 43px;
+    }
+    
+    .channel-name{
+        padding: 2px;
+        width: 280px;
+        height: 40px;
+    }
 }
-
-.menu-icon-button{
-    width: 40px;
-    height: 40px;
-}
-
-#menu-icon-image{
-    width: 40px;
-    height: 40px;
-}
-
-.channel-name{
-    padding: 2px;
-    width: 280px;
-    height: 40px;
-}
-
