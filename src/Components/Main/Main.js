@@ -14,12 +14,15 @@ export default class Main extends Component {
         return(
             <div className = 'app'>
                 <div className = 'background'>
+                    <div className = 'nav-left'>
+                    
+                    </div>
+                    <div className = 'nav-mid-left'>
+
+                    </div>
                     <div className = 'nav'>
                         <NavTop url = '/'/>
                     </div>
-                    {/* <div className='side-bar'>
-                    
-                    </div> */}
                     <div className ='text-chat'>
                         <span>text chat</span>
                     </div>

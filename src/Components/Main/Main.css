@@ -1,7 +1,118 @@
+@media(max-width: 1024px){
+    .background{
+        flex-wrap: column;
+        background-color: #36393F;
+        float: left;
+
+    }
+
+    .nav-left{
+
+        width: 125px;
+        background-color: yellow;
+
+    }
+
+    .nav-mid-left{
+        width: 375px;
+        background-color: blue
+
+    }
+    
+    .nav{
+        width: 624px;
+        height: 8vh;
+        position: absolute;
+        border-bottom: 3px solid white;
+        float: left;
+        background-color: green
+        
+    }
+    
+    .text-chat{
+        margin-top: 8vh;
+        width: 1024px;
+        height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+
+    }
+    
+    .input-bar{
+        width: 525px;
+        height: 10vh;
+        /* position: absolute; */
+        background-color: purple;
+    }
+}
+
+
+@media(max-width: 768px){
+    .background{
+        flex-wrap:wrap;
+        background-color: #36393F;
+    }
+    
+    .nav{
+        width: 768px;
+        height: 8vh;
+        position: absolute;
+        border-bottom: 3px solid white
+        
+        
+    }
+    
+    .text-chat{
+        margin-top: 8vh;
+        width: 768px;
+        height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    .input-bar{
+        width: 768px;
+        height: 10vh;
+    }
+}
+
+@media(max-width: 425px){
+    .background{
+        flex-wrap:wrap;
+        background-color: #36393F;
+    }
+    
+    .nav{
+        width: 425px;
+        height: 8vh;
+        position: absolute;
+        border-bottom: 3px solid white
+        
+        
+    }
+    
+    .text-chat{
+        margin-top: 8vh;
+        width: 425px;
+        height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    .input-bar{
+        width: 425px;
+        height: 10vh;
+    }
+}
 
 @media(max-width: 375px){
     .background{
-        flex-wrap:wrap
+        flex-wrap:wrap;
+        background-color: #36393F;
     }
     
     .nav{
@@ -13,13 +124,9 @@
         
     }
     
-    .side-bar{
-    
-    }
-    
     .text-chat{
         margin-top: 8vh;
-        width: 320px;
+        width: 375px;
         height: 82vh;
         display: flex;
         align-items: center;
@@ -34,7 +141,8 @@
 
 @media(max-width: 320px){
     .background{
-        flex-wrap:wrap
+        flex-wrap:wrap;
+        background-color: #36393F;
     }
     
     .nav{
@@ -45,10 +153,7 @@
         
         
     }
-    
-    .side-bar{
-    
-    }
+
     
     .text-chat{
         margin-top: 8vh;

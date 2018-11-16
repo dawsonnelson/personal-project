@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './InputBar.css'
 import add_button from '../../../assests/Add picture button.png'
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 
 export default class InputBar extends Component{
 
@@ -9,11 +11,14 @@ export default class InputBar extends Component{
         return(
                 <div className = 'InputBar-Background'>
                     <div className = 'inputs'>
-                        <button className = 'picture-input-button'><img className = 'picture-input-button-image' src ={add_button} alt=''/></button>
+                        <IconButton className = 'picture-input-button' variant="contained"><Icon/></IconButton>
                         <input className = 'text-input'></input>
-                        <button className = 'enter-button'>enter</button>  
+                        <IconButton className = 'enter-button'></IconButton>  
                     </div> 
                 </div>
         )
     }
 }
+
+
+//<img className = 'picture-input-button-image' src ={add_button} alt=''/>

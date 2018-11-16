@@ -8,7 +8,9 @@ export default class NavLeft extends Component{
         return(
             <div className = 'app'>
                 <div className = 'background'>
-
+                    <div className='body'>
+                        
+                    </div>
                 </div>
             </div>
         )
