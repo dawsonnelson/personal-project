@@ -29,6 +29,13 @@
         padding: 2px;
         width: 322px;
         height: 40px;
+        display: flex;
+        justify-content: left;
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }
 
@@ -45,6 +52,8 @@
     .menu-icon{
         width: 105.984px;
         height: 45px;
+        display: flex;
+        align-items: center;
     }
     
     .menu-icon-button{
@@ -63,6 +72,13 @@
         padding: 2px;
         width: 322px;
         height: 40px;
+        display: flex;
+        justify-content: left;
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }
 
@@ -79,6 +95,8 @@
     .menu-icon{
         width: 58.65px;
         height: 45px;
+        display: flex;
+        align-items: center;
     }
     
     .menu-icon-button{
@@ -97,6 +115,13 @@
         padding: 2px;
         width: 322px;
         height: 40px;
+        display: flex;
+        justify-content: left;
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }
 
@@ -113,6 +138,8 @@
     .menu-icon{
         width: 51.75px;
         height: 45px;
+        display: flex;
+        align-items: center;
     }
     
     .menu-icon-button{
@@ -131,6 +158,13 @@
         padding: 2px;
         width: 322px;
         height: 40px;
+        display: flex;
+        justify-content: left;
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }
 
@@ -145,8 +179,11 @@
     }
     
     .menu-icon{
+        display: flex;
         width: 45px;
         height: 45px;
+        display: flex;
+        align-items: center;
     }
     
     .menu-icon-button{
@@ -165,5 +202,12 @@
         padding: 2px;
         width: 280px;
         height: 40px;
+        display: flex;
+        justify-content: left;
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }

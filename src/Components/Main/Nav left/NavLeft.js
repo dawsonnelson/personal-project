@@ -6,12 +6,13 @@ export default class NavLeft extends Component{
 
     render() {
         return(
-            <div className = 'app'>
-                <div className = 'background'>
-                    <div className='body'>
-                        
-                    </div>
+            <div className = 'nav-body'>
+                {/* <div className = 'left'>
+                
                 </div>
+                <div className = 'mid-left'>
+                
+                </div> */}
             </div>
         )
     }

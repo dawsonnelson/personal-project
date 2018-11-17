@@ -23,9 +23,10 @@
         float: left;
         height: 40px;
         width: 660px;
-        border-left: 3px solid;
-        border-right: 3px solid;
-        overflow: scroll;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #36393F;
+        border-radius: 8px;
     }
     
     .enter-button{
@@ -62,9 +63,10 @@
         float: left;
         height: 40px;
         width: 310.25px;
-        border-left: 3px solid;
-        border-right: 3px solid;
-        overflow: scroll;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #36393F;
+        border-radius: 8px;
     }
     
     .enter-button{
@@ -101,9 +103,10 @@
         float: left;
         height: 40px;
         width: 273px;
-        border-left: 3px solid;
-        border-right: 3px solid;
-        overflow: scroll;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #36393F;
+        border-radius: 8px;
     }
     
     .enter-button{
@@ -141,9 +144,10 @@
         float: left;
         height: 40px;
         width: 232px;
-        border-left: 3px solid;
-        border-right: 3px solid;
-        overflow: scroll;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #36393F;
+        border-radius: 8px;
     }
     
     .enter-button{

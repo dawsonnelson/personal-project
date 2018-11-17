@@ -1,3 +1,16 @@
-.body{
-    
+.nav-body{
+    float: left;
+    flex-direction: row
+}
+
+.left{
+    width: 100px;
+    height: 100vh;
+    background: lightcoral
+}
+
+.mid-left{
+    width: 100px;
+    height: 100vh;
+    background: orange
 }

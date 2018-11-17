@@ -6,12 +6,12 @@
 
     }
 
-    .nav-left{
+    /* .nav-left{
 
         width: 125px;
         background-color: yellow;
 
-    }
+    } */
 
     .nav-mid-left{
         width: 375px;
@@ -25,7 +25,7 @@
         position: absolute;
         border-bottom: 3px solid white;
         float: left;
-        background-color: green
+        /* background-color: green */
         
     }
     
@@ -36,7 +36,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: red;
+        /* background-color: red; */
 
     }
     
@@ -44,7 +44,7 @@
         width: 525px;
         height: 10vh;
         /* position: absolute; */
-        background-color: purple;
+        /* background-color: purple; */
     }
 }
 
@@ -77,6 +77,21 @@
         width: 768px;
         height: 10vh;
     }
+
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
+    }
+
+    .test{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-768px);
+        transition: .5s ease-out;
+    
+    }
 }
 
 @media(max-width: 425px){
@@ -107,6 +122,21 @@
         width: 425px;
         height: 10vh;
     }
+
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
+    }
+
+    .test{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-425px);
+        transition: .5s ease-out;
+    
+    }
 }
 
 @media(max-width: 375px){
@@ -136,6 +166,21 @@
     .input-bar{
         width: 375px;
         height: 10vh;
+    }
+
+    .test{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-400px);
+        transition: .5s ease-out;
+    
+    }
+    
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
     }
 }
 
@@ -168,4 +213,21 @@
         width: 320px;
         height: 10vh;
     }
+
+    .test{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-350px);
+        transition: .5s ease-out;
+    
+    }
+    
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
+    }
 }
+
+
