@@ -1,3 +1,23 @@
+@media(max-width: 2410px){
+    .backdrop {
+        
+    }
+}
+@media(max-width: 1440px){
+    .backdrop {
+        
+    }
+}
+
+@media(max-width: 1024px){
+    .backdrop {
+        
+        
+    }
+}
+
+
+
 .backdrop {
     position: fixed;
     width: 100%;
@@ -8,3 +28,4 @@
     z-index: 100;
     
 }
+

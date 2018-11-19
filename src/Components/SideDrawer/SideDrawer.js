@@ -15,12 +15,12 @@ class sideDrawer extends Component{
     
     render(){
     // console.log(this.props.sideDrawerOpen)
-    let drawerClasses = 'side-drawer';
-    if(this.props.sideDrawerOpen) {
-        drawerClasses = 'side-drawer open';
-    }
+    // let drawerClasses = 'side-drawer';
+    // if(this.props.sideDrawerOpen) {
+    //     drawerClasses = 'side-drawer open';
+    // }
     return(
-        <nav className = {drawerClasses}>
+        <nav className = 'side-drawer'>
         <ul>
             <li><span>hello world</span></li>
             <li><span>hello thing</span></li>

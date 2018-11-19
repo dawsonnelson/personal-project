@@ -1,26 +1,33 @@
-@media(max-width: 1024px){
+
+@media(max-width: 2410px){
     .background{
         flex-wrap: column;
         background-color: #36393F;
         float: left;
+        width: 2410px;
 
     }
 
-    /* .nav-left{
+    .right{
+        width: 1928px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 
-        width: 125px;
-        background-color: yellow;
-
-    } */
+    .left{
+        width: 482px;
+        height: 100vh;
+    }
 
     .nav-mid-left{
         width: 375px;
-        background-color: blue
+        /* background-color: blue */
 
     }
     
     .nav{
-        width: 624px;
+        width: 1152px;
         height: 8vh;
         position: absolute;
         border-bottom: 3px solid white;
@@ -31,21 +38,172 @@
     
     .text-chat{
         margin-top: 8vh;
-        width: 1024px;
+        width: 100%;
         height: 82vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-left: 2px solid black;
+        border-right: 2px solid yellow
         /* background-color: red; */
 
     }
     
     .input-bar{
-        width: 525px;
+        width: 100%;
         height: 10vh;
+        border: 2px solid black;
         /* position: absolute; */
         /* background-color: purple; */
     }
+
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
+    }
+
+    .test{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-768px);
+        transition: .5s ease-out;
+    
+    }
+}
+
+@media(max-width: 1440px){
+    .background{
+        flex-wrap: column;
+        background-color: #36393F;
+        float: left;
+
+    }
+
+    .right{
+        width: 1152px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left{
+        width: 288px;
+        height: 100vh;
+    }
+
+    .nav-mid-left{
+        width: 375px;
+        /* background-color: blue */
+
+    }
+    
+    .nav{
+        width: 1152px;
+        height: 8vh;
+        position: absolute;
+        border-bottom: 3px solid white;
+        float: left;
+        /* background-color: green */
+        
+    }
+    
+    .text-chat{
+        margin-top: 8vh;
+        width: 100%;
+        height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 2px solid black;
+        border-right: 2px solid black
+        /* background-color: red; */
+
+    }
+    
+    .input-bar{
+        width: 100%;
+        height: 10vh;
+        border: 2px solid black;
+        /* position: absolute; */
+        /* background-color: purple; */
+    }
+
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
+    }
+
+    .test{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-768px);
+        transition: .5s ease-out;
+    
+    }
+}
+
+@media(max-width: 1024px){
+    .background{
+        flex-wrap: column;
+        background-color: #36393F;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .right{
+        width: 819.2px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left{
+        width: 204.8px;
+        height: 100vh;
+    }
+    
+    .nav{
+        width: 819.2px;
+        height: 8vh;
+        /* position: absolute; */
+        border-bottom: 3px solid white;
+        float: left;
+        /* background-color: green */
+        
+    }
+    
+    .text-chat{
+        width: 100%;
+        height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 2px solid black;
+        border-right: 2px solid black
+        /* background-color: red; */
+
+    }
+    
+    .input-bar{
+        width: 100%;
+        height: 10vh;
+        border: 2px solid black;
+        
+        /* background-color: purple; */
+    }
+
+    .test-open{
+        width: 100%;
+        height: 100vh;
+        transform: translateX(0px);
+        transition: .5s ease;
+    }
+
 }
 
 
@@ -53,6 +211,19 @@
     .background{
         flex-wrap:wrap;
         background-color: #36393F;
+    }
+
+    .right{
+        width: 768px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left{
+        width: 0px;
+        height: 100vh;
+        z-index: 100;
     }
     
     .nav{
@@ -79,7 +250,7 @@
     }
 
     .test-open{
-        width: 100%;
+        width: 768px;
         height: 100vh;
         transform: translateX(0px);
         transition: .5s ease;
@@ -99,6 +270,19 @@
         flex-wrap:wrap;
         background-color: #36393F;
     }
+
+    .right{
+        width: 425px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left{
+        width: 0px;
+        height: 100vh;
+        z-index: 100;
+    }
     
     .nav{
         width: 425px;
@@ -124,7 +308,7 @@
     }
 
     .test-open{
-        width: 100%;
+        width: 425px;
         height: 100vh;
         transform: translateX(0px);
         transition: .5s ease;
@@ -140,94 +324,65 @@
 }
 
 @media(max-width: 375px){
-    .background{
-        flex-wrap:wrap;
-        background-color: #36393F;
-    }
-    
-    .nav{
-        width: 375px;
-        height: 8vh;
-        position: absolute;
-        border-bottom: 3px solid white
-        
-        
-    }
-    
-    .text-chat{
-        margin-top: 8vh;
-        width: 375px;
-        height: 82vh;
-        display: flex;
-        align-items: center;
-        justify-content: center
-    }
-    
-    .input-bar{
-        width: 375px;
-        height: 10vh;
-    }
 
-    .test{
-        width: 100%;
-        height: 100vh;
-        transform: translateX(-400px);
-        transition: .5s ease-out;
-    
-    }
-    
-    .test-open{
-        width: 100%;
-        height: 100vh;
-        transform: translateX(0px);
-        transition: .5s ease;
-    }
 }
 
 @media(max-width: 320px){
-    .background{
-        flex-wrap:wrap;
-        background-color: #36393F;
-    }
     
-    .nav{
-        width: 320px;
-        height: 8vh;
-        position: absolute;
-        border-bottom: 3px solid white
-        
-        
-    }
+}
 
-    
-    .text-chat{
-        margin-top: 8vh;
-        width: 320px;
-        height: 82vh;
-        display: flex;
-        align-items: center;
-        justify-content: center
-    }
-    
-    .input-bar{
-        width: 320px;
-        height: 10vh;
-    }
 
-    .test{
-        width: 100%;
-        height: 100vh;
-        transform: translateX(-350px);
-        transition: .5s ease-out;
+.right{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.left{
+    width: 0px;
+    height: 100vh;
+    z-index: 100;
+}
+
+.nav{
+    width: 100%;
+    height: 8vh;
+    position: absolute;
+    border-bottom: 3px solid white
     
-    }
     
-    .test-open{
-        width: 100%;
-        height: 100vh;
-        transform: translateX(0px);
-        transition: .5s ease;
-    }
+}
+
+
+.text-chat{
+    margin-top: 8vh;
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.input-bar{
+    width: 100%;
+    height: 10vh;
+}
+
+.test{
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-350px);
+    transition: .5s ease-out;
+    
+
+}
+
+.test-open{
+    width: 100%;
+    height: 100vh;
+    transform: translateX(0px);
+    transition: .5s ease;
 }
 
 

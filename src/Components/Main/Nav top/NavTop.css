@@ -1,36 +1,127 @@
-@media(max-width: 1024px){
+@media(max-width: 2410px){
     .nav-top-background{
-        width: 1024px;
+        width: 1928px;
         height: 8vh;
         position: absolute;
         display: flex;
         align-items: center;
+        float: right
         /* justify-content: center; */
     }
     
     .menu-icon{
-        width: 105.984px;
-        height: 45px;
+        width: 0;
+        height: 0
     }
     
     .menu-icon-button{
-        width: 105.984px;
-        height: 45px;
+        width: 0;
+        height: 0;
         padding:0;
         
     }
     
     #menu-icon-image{
-        width: 49.45px;
-        height: 43px;
+        width: 0;
+        height: 0;
     }
     
     .channel-name{
         padding: 2px;
-        width: 322px;
+        width: 80%;
         height: 40px;
         display: flex;
         justify-content: left;
+        margin-left: 30px;
+
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media(max-width: 1440px){
+    .nav-top-background{
+        width: 1152px;
+        height: 8vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        float: right
+        /* justify-content: center; */
+    }
+    
+    .menu-icon{
+        width: 0;
+        height: 0
+    }
+    
+    .menu-icon-button{
+        width: 0;
+        height: 0;
+        padding:0;
+        
+    }
+    
+    #menu-icon-image{
+        width: 0;
+        height: 0;
+    }
+    
+    .channel-name{
+        padding: 2px;
+        width: 80%;
+        height: 40px;
+        display: flex;
+        justify-content: left;
+        margin-left: 30px;
+
+    }
+
+    .c{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media(max-width: 1024px){
+    .nav-top-background{
+        width: 819.2px;
+        height: 8vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        float: right
+        /* justify-content: center; */
+    }
+    
+    .menu-icon{
+        width: 0;
+        height: 0
+    }
+    
+    .menu-icon-button{
+        width: 0;
+        height: 0;
+        padding:0;
+        
+    }
+    
+    #menu-icon-image{
+        width: 0;
+        height: 0;
+    }
+    
+    .channel-name{
+        padding: 2px;
+        width: 80%;
+        height: 40px;
+        display: flex;
+        justify-content: left;
+        margin-left: 30px;
+
     }
 
     .c{

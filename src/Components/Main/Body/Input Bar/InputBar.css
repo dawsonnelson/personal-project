@@ -1,3 +1,123 @@
+@media(max-width: 2410px){
+    .InputBar-Background{
+        background-color: #36393F;
+        height: 40px;
+        margin-top: 15px;
+    
+    }
+    
+    .picture-input-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 50px;
+        height: 45px;
+    }
+    
+    .picture-input-button-image{
+        width: 50px;
+        height: 40px;
+    }
+    
+    .text-input{
+        float: left;
+        height: 40px;
+        width: 1638px;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #3F4249;
+        border-radius: 8px;
+    }
+    
+    .enter-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 50px;
+        height: 45px;
+    }
+}
+
+@media(max-width: 1440px){
+    .InputBar-Background{
+        background-color: #36393F;
+        height: 40px;
+        margin-top: 15px;
+    
+    }
+    
+    .picture-input-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 50px;
+        height: 45px;
+    }
+    
+    .picture-input-button-image{
+        width: 50px;
+        height: 40px;
+    }
+    
+    .text-input{
+        float: left;
+        height: 40px;
+        width: 1238px;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #3F4249;
+        border-radius: 8px;
+    }
+    
+    .enter-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 50px;
+        height: 45px;
+    }
+}
+
+@media(max-width: 1024px){
+    .InputBar-Background{
+        background-color: #36393F;
+        height: 40px;
+        margin-top: 15px;
+    
+    }
+    
+    .picture-input-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 50px;
+        height: 45px;
+    }
+    
+    .picture-input-button-image{
+        width: 50px;
+        height: 40px;
+    }
+    
+    .text-input{
+        float: left;
+        height: 40px;
+        width: 880.64px;
+        border-left: 3px green solid;
+        border-right: 3px green solid;
+        background: #3F4249;
+        border-radius: 8px;
+    }
+    
+    .enter-button{
+        padding: 0;
+        margin-top: 1px;
+        float: left;
+        width: 50px;
+        height: 45px;
+    }
+}
+
 @media(max-width: 768px){
     .InputBar-Background{
         background-color: #36393F;
@@ -25,7 +145,7 @@
         width: 660px;
         border-left: 3px green solid;
         border-right: 3px green solid;
-        background: #36393F;
+        background: #3F4249;
         border-radius: 8px;
     }
     
@@ -65,7 +185,7 @@
         width: 310.25px;
         border-left: 3px green solid;
         border-right: 3px green solid;
-        background: #36393F;
+        background: #3F4249;
         border-radius: 8px;
     }
     
@@ -105,7 +225,7 @@
         width: 273px;
         border-left: 3px green solid;
         border-right: 3px green solid;
-        background: #36393F;
+        background: #3F4249;
         border-radius: 8px;
     }
     
@@ -144,9 +264,8 @@
         float: left;
         height: 40px;
         width: 232px;
-        border-left: 3px green solid;
-        border-right: 3px green solid;
-        background: #36393F;
+        border: transparent;
+        background: #3F4249;
         border-radius: 8px;
     }
     

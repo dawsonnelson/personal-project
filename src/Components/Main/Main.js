@@ -40,22 +40,22 @@ class Main extends Component {
         return(
             <div className = 'app'>
                 <div className = 'background'>
-                    {/* <div className = 'nav-left'>
-                        <NavLeft url = '/'/>
-                    </div> */}
-                    <div></div>
-                    <div className = 'nav'>
-                        <NavTop url = '/'/>
+                    <div className = 'left'>
                         <div className={test}>
-                        {sideDrawer}
-                        {backdrop}
+                            {sideDrawer}
+                            {backdrop}
                         </div>
                     </div>
-                    <div className ='text-chat'>
-                        <span>text chat</span>
-                    </div>
-                    <div className='input-bar'>
-                        <InputBar url = '/'/>
+                    <div className = 'right'>
+                        <div className = 'nav'>
+                            <NavTop url = '/'/>
+                        </div>
+                        <div className ='text-chat'>
+                            <span>text chat</span>
+                        </div>
+                        <div className='input-bar'>
+                            <InputBar url = '/'/>
+                        </div>
                     </div>
                 </div>
             </div>
