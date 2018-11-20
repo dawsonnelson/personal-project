@@ -1,3 +1,68 @@
+.toggle-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.toggle-button_line{
+    width: 30px;
+    height: 2px;
+    background: white;
+    
+}
+
+
+
+
+
+
+
+
+
+/* @media(max-width: 2410px){
+    .toggle-button{
+        width: 0;
+    }
+    
+    .toggle-button:focus {
+        width: 0;
+    }
+    
+    .toggle-button_line{
+        width: 0;
+        height: 0;
+        
+    }
+}
+
+@media(max-width: 1440px){
+    .toggle-button{
+        width: 0;
+    }
+    
+    .toggle-button:focus {
+        width: 0;
+    }
+    
+    .toggle-button_line{
+        width: 0;
+        height: 0;
+        
+    }
+}
+
 @media(max-width: 1024px){
     .toggle-button{
         width: 0;
@@ -13,6 +78,97 @@
         
     }
 }
+@media(max-width: 768px){
+
+
+    .toggle-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 30px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .toggle-button:focus {
+        outline: none;
+    }
+    
+    .toggle-button_line{
+        width: 30px;
+        height: 2px;
+        background: white;
+        
+    }
+    }
+
+@media(max-width: 425px){
+
+
+    .toggle-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 30px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .toggle-button:focus {
+        outline: none;
+    }
+    
+    .toggle-button_line{
+        width: 30px;
+        height: 2px;
+        background: white;
+        
+    }
+    }
+
+
+@media(max-width: 375px){
+
+
+    .toggle-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 30px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .toggle-button:focus {
+        outline: none;
+    }
+    
+    .toggle-button_line{
+        width: 30px;
+        height: 2px;
+        background: white;
+        
+    }
+    } */
+
+
+/* @media(max-width: 320px){
+
 
 .toggle-button{
     display: flex;
@@ -38,3 +194,4 @@
     background: white;
     
 }
+} */

@@ -47,15 +47,11 @@ class Main extends Component {
                         </div>
                     </div>
                     <div className = 'right'>
-                        <div className = 'nav'>
-                            <NavTop url = '/'/>
-                        </div>
+                            <NavTop url = '/'/>             
                         <div className ='text-chat'>
                             <span>text chat</span>
                         </div>
-                        <div className='input-bar'>
                             <InputBar url = '/'/>
-                        </div>
                     </div>
                 </div>
             </div>

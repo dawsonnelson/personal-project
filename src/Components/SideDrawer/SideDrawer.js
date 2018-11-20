@@ -20,12 +20,12 @@ class sideDrawer extends Component{
     //     drawerClasses = 'side-drawer open';
     // }
     return(
-        <nav className = 'side-drawer'>
+        <div className = 'side-drawer'>
         <ul>
             <li><span>hello world</span></li>
             <li><span>hello thing</span></li>
         </ul>
-    </nav>
+    </div>
     )
 }
 }
