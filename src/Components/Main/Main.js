@@ -9,6 +9,8 @@ import SideDrawer from '../SideDrawer/SideDrawer'
 import BackDrop from '../Backdrop/Backdrop'
 import { connect } from 'react-redux'
 import {updateSideDrawerOpen} from '../../ducks/reducer'
+import axios from 'axios';
+
 
 
 
@@ -19,13 +21,37 @@ class Main extends Component {
         super()
 
         this.state = {
-
+            messages: []
         }
         
     }
 
+    componentDidMount(){
+        axios.get('/api/getMessages')
+        .then(res=>{
+            console.log(res.data)
+
+            this.setState({
+                messages: res.data
+            })
+        })
+    }
+
+    renderMessage(){
+        return this.state.messages.map((message) =>{
+            console.log(message)
+            return(
+                <div className = 'message-box'>
+                <span className = 'message'>{message.message}</span>
+                </div>
+            )
+        })
+    }
+
+    
     render(){
-        console.log(this.props.sideDrawerOpen)
+        // console.log(this.state.messages)
+        // console.log(this.props.sideDrawerOpen)
         let sideDrawer = null;
         let backdrop = null;
         let test = 'test';
@@ -36,6 +62,8 @@ class Main extends Component {
             backdrop = <BackDrop url = '/'/>;
             test = 'test-open'
         }
+
+    
 
         return(
             <div className = 'app'>
@@ -49,7 +77,7 @@ class Main extends Component {
                     <div className = 'right'>
                             <NavTop url = '/'/>             
                         <div className ='text-chat'>
-                            <span>text chat</span>
+                            {this.renderMessage()}
                         </div>
                             <InputBar url = '/'/>
                     </div>

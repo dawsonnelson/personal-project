@@ -81,6 +81,29 @@ app.post('/auth/logout', (req, res) =>{
     res.redirect('http://localhost:3000/#/')
 })
 
+app.post('/api/createMessage', (req,res) =>{
+    let { inputBar } = req.body
+    console.log(req)
+    const db = req.app.get('db')
+    db.create_message([inputBar])
+    .then(resp=>{
+
+        res.status(200).send(resp)
+    })
+    .catch(console.log)
+})
+
+app.get('/api/getMessages', (req, res)=>{
+    const db = req.app.get('db')
+    console.log('listen')
+    db.recive_all_messages([])
+    .then(resp=>{
+        res.status(200).send(resp)
+    })
+    .catch(console.log)
+})
+
+
 
 
 

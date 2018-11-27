@@ -25,3 +25,14 @@
 .c{
     margin-left: 10%
 }
+
+/* @media(max-width: 1024px){
+    .menu-icon{
+        width: 0;
+        height: 0;
+    }
+
+    .channel-name{
+        width: 100%;
+    }
+} */
