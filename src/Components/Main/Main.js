@@ -11,19 +11,40 @@ import { connect } from 'react-redux'
 import {updateSideDrawerOpen} from '../../ducks/reducer'
 import axios from 'axios';
 
+import socket from "socket.io-client";
+
 
 
 
 // const drawerWidth = 240;
+const io = socket.connect("http://localhost:4000");
 
 class Main extends Component {
     constructor(){
         super()
 
         this.state = {
-            messages: []
-        }
-        
+            message:"",
+            messages: [],
+            room: "",
+            currentRoom: "",
+            someoneTyping: false
+        };
+        io.on("message-to-users", message => {
+            let messages = [...this.state.messages, message.message];
+            this.setState({messages});
+        });
+
+        io.on("joined-room", message => {
+            let messages = [...this.state.messages, message.message];
+            this.setState({messages});
+        });
+
+        io.on("someone-typing", () => {
+            console.log("hit?");
+            this.setState({ someoneTyping: true })
+        });
+
     }
 
     componentDidMount(){
@@ -37,16 +58,16 @@ class Main extends Component {
         })
     }
 
-    renderMessage(){
-        return this.state.messages.map((message) =>{
-            console.log(message)
-            return(
-                <div className = 'message-box'>
-                <span className = 'message'>{message.message}</span>
-                </div>
-            )
-        })
-    }
+    // renderMessage(){
+    //     return this.state.messages.map((message) =>{
+    //         console.log(message)
+    //         return(
+    //             <div className = 'message-box'>
+    //             <span className = 'message'>{message.message}</span>
+    //             </div>
+    //         )
+    //     })
+    // }
 
     
     render(){
