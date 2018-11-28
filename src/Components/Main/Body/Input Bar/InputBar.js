@@ -5,6 +5,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { updateInputBar } from '../../../../ducks/reducer'
 import { connect } from 'react-redux'
+import socket from "socket.io-client"
+
+const io = socket.connect("http://localhost:4000")
 
 
 class InputBar extends Component{
@@ -14,10 +17,14 @@ class InputBar extends Component{
         this.state = {
             // textInput: null,
             // message: this.props.inputBar
+            message: "",
+            messages: [],
+    
         }
 
         this.handleTextInput = this.handleTextInput.bind(this)
         this.handleCreateMessage = this.handleCreateMessage.bind(this)
+        
     }
 
     handleTextInput(e){
@@ -25,7 +32,10 @@ class InputBar extends Component{
     }
 
     handleCreateMessage(){
-        console.log(this.props)
+        io.emit("send-message", {
+            message: this.props.inputBar
+        })
+        console.log(this.props.inputBar)
         let {inputBar} = this.props
 
         axios.post('/api/createMessage', {inputBar})
@@ -35,8 +45,20 @@ class InputBar extends Component{
     }
 
     
+    ///////// keep /////////
+    // handleCreateMessage(){
+    //     console.log(this.props)
+    //     let {inputBar} = this.props
+
+    //     axios.post('/api/createMessage', {inputBar})
+    //     .then(res=>{
+    //         console.log(res)
+    //     })
+    // }
+
+    
     render() {
-        console.log(this.props)
+        // console.log(this.state.messages)
         return(
                 <div className = 'InputBar-Background'>
                     <div className = 'inputs'>

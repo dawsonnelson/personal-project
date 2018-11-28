@@ -4,6 +4,7 @@ const massive = require('massive');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const socket = require('socket.io')
 
 
 const {
@@ -107,4 +108,38 @@ app.get('/api/getMessages', (req, res)=>{
 
 
 
-app.listen(SERVER_PORT, () => console.log(`Listing on port ${SERVER_PORT}`))
+const io = socket(app.listen(SERVER_PORT, () => console.log(`Listing on port ${SERVER_PORT}`)));
+
+io.on("connection", socket => {
+    console.log("A user has conncted with my Socket");
+
+    // socket.on("join-chat", data =>{
+    //     socket.broadcast.emit("all-users", data.name);
+    // });
+
+    socket.on("send-message", data => {
+        io.emit("message-recived", data);
+    });
+
+    socket.on("join-room", data => {
+
+        socket.join(data.room);
+
+        io.to(data.room).emit("room-message-recived", {
+            message: `new user to room ${data.room}`
+            
+        });
+        console.log('testing 1')
+    });
+
+    socket.on("send-room-message", data => {
+
+        io.in(data.room).emit("send-room-message-received", {
+            message: `${data.name} says: ${data.message}`
+        });
+    });
+
+    io.on("disconnect", () => {
+        console.log("he out");
+    })
+})  
