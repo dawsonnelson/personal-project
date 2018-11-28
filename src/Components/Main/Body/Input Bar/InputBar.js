@@ -3,11 +3,12 @@ import './InputBar.css'
 import axios from 'axios'
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
-import { updateInputBar } from '../../../../ducks/reducer'
+import { updateInputBar } from '../../../../ducks/reducer';
+import { updateRoom } from '../../../../ducks/reducer';
 import { connect } from 'react-redux'
-import socket from "socket.io-client"
+import io from "socket.io-client"
 
-const io = socket.connect("http://localhost:4000")
+const socket = io.connect("http://localhost:4000")
 
 
 class InputBar extends Component{
@@ -17,8 +18,8 @@ class InputBar extends Component{
         this.state = {
             // textInput: null,
             // message: this.props.inputBar
-            message: "",
-            messages: [],
+            // message: "",
+            // messages: [],
     
         }
 
@@ -32,19 +33,37 @@ class InputBar extends Component{
     }
 
     handleCreateMessage(){
-        io.emit("send-message", {
-            message: this.props.inputBar
-        })
-        console.log(this.props.inputBar)
-        let {inputBar} = this.props
-
-        axios.post('/api/createMessage', {inputBar})
-        .then(res=>{
-            console.log(res)
-        })
+        // console.log(this.props.room)
+        if(this.props.room === ""){
+            socket.emit("send-message", {
+                message: this.props.inputBar
+            })
+            console.log("empty")
+            let {inputBar} = this.props
+    
+            axios.post('/api/createMessage', {inputBar})
+            .then(res=>{
+                // console.log(res)
+            })
+        } else {
+            // console.log('emit hit')
+            socket.emit("send-room-message", {
+                name: this.state.name,
+                room: this.props.room,
+                message: this.props.inputBar,
+            })
+            console.log("some room")
+            let {inputBar} = this.props
+    
+            axios.post('/api/createMessage', {inputBar})
+            .then(res=>{
+                // console.log(res)
+            })
+        }
+        
     }
 
-    
+
     ///////// keep /////////
     // handleCreateMessage(){
     //     console.log(this.props)
@@ -74,9 +93,10 @@ class InputBar extends Component{
 function mapStateToProps(duckState) {
     return {
         inputBar: duckState.inputBar,
+        room: duckState.room,
     }
 }
 
-export default connect(mapStateToProps, { updateInputBar})(InputBar);
+export default connect(mapStateToProps, { updateInputBar, updateRoom})(InputBar);
 
 //<img className = 'picture-input-button-image' src ={add_button} alt=''/>

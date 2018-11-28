@@ -9,6 +9,7 @@ import BackDrop from '../Backdrop/Backdrop'
 import { connect } from 'react-redux'
 import {updateSideDrawerOpen} from '../../ducks/reducer'
 import {updateInputBar} from '../../ducks/reducer'
+import {updateRoom} from '../../ducks/reducer'
 // import axios from 'axios';
 
 import io from "socket.io-client";
@@ -34,7 +35,6 @@ class Main extends Component {
             name: "",
             roomMessage: "",
             roomMessages: [],
-            room: null,
             username: '',
             password: '',
             allMessages: []
@@ -54,9 +54,19 @@ class Main extends Component {
         
         socket.on("message-recived", data => {
             this.setState(() => {
-                let tempMessages = [...this.state.messages];
-                tempMessages.push(`${data.message}`);
-                return { messages: tempMessages };
+
+                if(this.props.room === ""){
+                    console.log('mess')
+                    let tempMessages = [...this.state.messages];
+                    tempMessages.push(`${data.message}`);
+                    return { messages: tempMessages };
+                } else {
+                    console.log('room')
+                    let tempMessages = [...this.state.roomMessages];
+                    tempMessages.push(data.message);
+                    return { roomMessages: tempMessages };
+                }
+                
             })
         })
         /////////////////// Room ///////////////////////
@@ -104,7 +114,7 @@ class Main extends Component {
     joinRoom(){
         this.setState({ roomJoined: true });
 
-        socket.emit("join-room", { room: this.state.room });
+        socket.emit("join-room", { room: this.props.room });
         console.log('joining')
     }
 
@@ -122,28 +132,29 @@ class Main extends Component {
         console.log(this.state)
     }
 
-    handleRoomChange(){
-        this.setState({
-            room: 1
-        })
+    handleRoomChange(e){
+        this.props.updateRoom(e.target.value)
 
-        console.log(this.state.room)
+        console.log(this.props.room)
     }
 
     renderMessages(){
 
-        if(this.state.room === null){
+        if(this.props.room === ""){
 
         
         return this.state.messages.map((message) =>{
+            // console.log('hey')
             return(
                 <div className = 'message-box'>
                     <span className = 'message'>{message}</span>
                 </div>
+                
             )
         })
         } else {
             return this.state.roomMessages.map((message) => {
+                // console.log('ho')
                 return(
                     <div className = 'message-box'>
                         <span className = 'message'>{message}</span>
@@ -182,7 +193,7 @@ class Main extends Component {
                     <div className = 'right'>
                             <NavTop url = '/'/>             
                         <div className ='text-chat'>
-                            <input onChange={e => this.setState({ room: e.target.value})}></input>
+                            <input onChange={this.handleRoomChange}></input>
                             <button onClick= {this.sendRoomMessage}>Send</button>
                             <button onClick = {this.joinRoom}>Room</button>
                             <button onClick={this.handletest}>test</button>
@@ -199,8 +210,9 @@ class Main extends Component {
 function mapStateToProps(duckState) {
     return {
         sideDrawerOpen: duckState.sideDrawerOpen,
-        inputBar: duckState.inputBar
+        inputBar: duckState.inputBar,
+        room: duckState.room
     }
 }
 
-export default connect(mapStateToProps, { updateSideDrawerOpen, updateInputBar})(Main);
+export default connect(mapStateToProps, { updateSideDrawerOpen, updateInputBar, updateRoom})(Main);

@@ -5,3 +5,11 @@
     z-index: 10;
     background-color: white;
 }
+
+a.create-channel{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: grey;
+    font-size: 60px;
+}

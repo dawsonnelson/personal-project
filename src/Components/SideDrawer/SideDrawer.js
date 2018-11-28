@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import './SideDrawer.css'
 import { connect } from 'react-redux'
 import {updateSideDrawerOpen} from '../../ducks/reducer'
+import {Link} from 'react-router-dom';
+
 
 class sideDrawer extends Component{
     constructor(){
@@ -10,22 +12,20 @@ class sideDrawer extends Component{
         this.state = {
 
         }
+
+        this.handleCreateChannel = this.handleCreateChannel.bind(this);
+    }
+
+    handleCreateChannel(){
+
     }
 
     
     render(){
-    // console.log(this.props.sideDrawerOpen)
-    // let drawerClasses = 'side-drawer';
-    // if(this.props.sideDrawerOpen) {
-    //     drawerClasses = 'side-drawer open';
-    // }
     return(
         <div className = 'side-drawer'>
-        <ul>
-            <li><span>hello world</span></li>
-            <li><span>hello thing</span></li>
-        </ul>
-    </div>
+            <Link to ='/Channel' className = 'create-channel'>+</Link>
+        </div>
     )
 }
 }
