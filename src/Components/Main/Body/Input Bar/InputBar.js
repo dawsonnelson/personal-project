@@ -8,7 +8,8 @@ import { updateRoom } from '../../../../ducks/reducer';
 import { connect } from 'react-redux'
 import io from "socket.io-client"
 
-const socket = io.connect("http://localhost:4000")
+
+const socket = io.connect(process.envREACT_APP_SOCKETSURL)
 
 
 class InputBar extends Component{
