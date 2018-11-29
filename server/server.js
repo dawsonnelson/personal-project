@@ -94,10 +94,30 @@ app.post('/api/createMessage', (req,res) =>{
     .catch(console.log)
 })
 
+app.post('/api/createChannel', (req, res) =>{
+    const db = req.app.get('db');
+
+    db.create_channel([req.body.channel])
+    .then(message => {
+        res.status(200).send(message)
+    })
+    .catch(err => console.log(err))
+})
+
 app.get('/api/getMessages', (req, res)=>{
     const db = req.app.get('db')
     console.log('listen')
     db.recive_all_messages([])
+    .then(resp=>{
+        res.status(200).send(resp)
+    })
+    .catch(console.log)
+})
+
+app.get('/api/getChannels', (req, res) =>{
+    const db = req.app.get('db')
+
+    db.get_channels([])
     .then(resp=>{
         res.status(200).send(resp)
     })

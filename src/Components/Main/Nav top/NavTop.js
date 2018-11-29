@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './NavTop.css';
-// import menuIcon from '../../assests/menu icon.png';
-// import IconButton from '@material-ui/core/IconButton';
-// import Button from '../../SideDrawer/DrawerToggleButton'
 import DrawerToggleButton from '../../SideDrawer/DrawerToggleButton';
+import {updateRoom} from '../../../ducks/reducer'
+import { connect } from 'react-redux'
 
-export default function NavTop(props){
+class NavTop extends Component{
+    constructor(props){
+        super(props)
+
+        this.state = {
+
+        }
+    }
+    
+    render(){
     return(
         <div className = 'nav-top-background'>
             <div className = 'menu-icon'>
@@ -13,11 +21,20 @@ export default function NavTop(props){
                 <DrawerToggleButton />
             </div>
             <div className='channel-name'>
-                <span className='c'>Channel Name</span>
+                <span className='c'>{this.props.room}</span>
             </div>
         </div>
     )
+    }
 }
+
+function mapStateToProps(duckState) {
+    return {
+        room: duckState.room
+    }
+}
+
+export default connect(mapStateToProps, {updateRoom})(NavTop);
 
 
 

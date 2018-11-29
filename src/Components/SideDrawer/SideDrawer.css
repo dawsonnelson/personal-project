@@ -6,10 +6,22 @@
     background-color: white;
 }
 
-a.create-channel{
+.channel-image{}
+
+/* .channel-box{
+    width: 95%;
+    height: 95%;
+    margin-top: 10%;
+    border-color: red;
+} */
+
+/* .create-channel{
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background-color: grey;
     font-size: 60px;
-}
+} */
+
+
+
