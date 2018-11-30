@@ -1,16 +1,15 @@
 create table users (
     id serial Primary key,
-    auth0_id varchar(200),
+    password varchar(200),
     user_image varchar(200),
-    username varchar(200),
-
+    username varchar(200)
 )
 
 create table messages (
     id serial Primary key,
     message varchar(200),
-    user_id int,
-    channel_id int,
+    user_id varchar,
+    channel_id varchar(200),
     friend_id int
 )
 
@@ -22,12 +21,12 @@ create table channels (
 
 create table server (
     id serial primary key,
-    user_id int,
+    user_id varchar,
     channel_id int
 )
 
 create table friends (
     id serial primary key,
-    user_id int, 
+    user_id varchar, 
     friend_id int
 )

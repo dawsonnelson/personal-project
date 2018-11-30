@@ -4,7 +4,8 @@ const massive = require('massive');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const socket = require('socket.io')
+const socket = require('socket.io');
+const alert = require('alert-node');
 
 
 const {
@@ -34,48 +35,95 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
- 
-app.get('/auth/callback', async (req, res) =>{
 
-    try{
+ 
+// app.get('/auth/callback', async (req, res) =>{
+//     console.log('is this hitting')
+//     try{
     
-        const payload = {
-            client_id: REACT_APP_CLIENT_ID,
-            client_secret: REACT_APP_CLIENT_SECRET,
-            code: req.query.code,
-            grant_type: 'authorization_code',
-            redirect_uri: `http://${req.headers.host}/auth/callback`
-        }
+//         const payload = {
+//             client_id: REACT_APP_CLIENT_ID,
+//             client_secret: REACT_APP_CLIENT_SECRET,
+//             code: req.query.code,
+//             grant_type: 'authorization_code',
+//             redirect_uri: `http://${req.headers.host}/auth/callback`
+//         }
         
-        let rewWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
+//         let rewWithToken = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
         
-        let resWithUserData = await axios.get(`https://${REACT_APP_DOMAIN}/userinfo?access_token=${rewWithToken.data.access_token}`)
+//         let resWithUserData = await axios.get(`https://${REACT_APP_DOMAIN}/userinfo?access_token=${rewWithToken.data.access_token}`)
         
     
-        let auth0_id = resWithUserData.data.sub
-        let user_image = 'https://robohash.org/me'
-        // console.log(resWithUserData.sub)
+//         let auth0_id = resWithUserData.data.sub
+//         let user_image = 'https://robohash.org/me'
+//         console.log(req)
+//         let username = 'cool guy'
+//         // console.log(resWithUserData.sub)
         
-        let db = req.app.get('db');
-        // console.log('before find user')
-        let foundUser = await db.find_user([auth0_id])
-                                                                                        // console.log(resWithUserData.data.sub)
-                                                                                        // console.log(foundUser)
-                                                                                        // console.log('after find user')
-        if(foundUser[0]){
-            req.session.user = foundUser[0]
-            res.redirect('/#/dashboard');
-        } else {
-            // console.log('before create user')
-            let user = await db.create_user([auth0_id, user_image])
-            // console.log('after create user')
-            req.session.userId = user[0].id;
-            res.redirect('/#/dashboard');
-        }
-    } catch(error){
-        console.log(error)
-    }
+//         let db = req.app.get('db');
+//         // console.log('before find user')
+//         let foundUser = await db.find_user([auth0_id])
+//                                                                                         // console.log(resWithUserData.data.sub)
+//                                                                                         // console.log(foundUser)
+//                                                                                         // console.log('after find user')
+//         if(foundUser[0]){
+//             console.log('founduser')
+//             req.session.user = foundUser[0]
+//             res.redirect('/#/dashboard');
+//         } else {
+//             console.log('before create user')
+//             let user = await db.create_user([auth0_id, username])
+//             console.log('after create user')
+//             req.session.userId = user[0].id;
+//             res.redirect('/#/dashboard');
+//         }
+//     } catch(error){
+//         console.log(error)
+//     }
+// })
+
+app.post('/api/auth/register', (req, res) => {
+    // console.log(req)
+    const {username, password} = req.body
+        // console.log(req.body)
+        req.app.get('db').check_user([username])
+        .then((user) => {
+            // console.log(user)
+            if (user.length !== 0 ){
+                alert("Username unavalible")
+                // console.log(`Username unavalible`)
+            } else if (username === ""){
+                alert("Must have username")
+                console.log('must have usernaem')
+            } else {
+                req.app.get('db').create_user([username, password])
+                .then((user) => {
+                    // console.log( "test", user, user[0].id)
+                    req.session.userId = user[0].id
+                    res.sendStatus(200)
+                })
+                .catch((err) => {
+                    console.log(err, 'its here')
+                    res.status(500).send(err)
+                })
+            }
+        })
+
 })
+
+app.post('/api/auth/login', (req, res) => {
+    const {username, password} = req.body
+    console.log(req.body)
+
+    req.app.get('db').login([username, password])
+    .then((user) => {
+        console.log(user)
+        // req.session.userId = user[0].id
+        // console.log(req.session);
+        res.sendStatus(200);
+    })
+})
+
 
 app.post('/auth/logout', (req, res) =>{
     req.session.destroy();
@@ -83,10 +131,10 @@ app.post('/auth/logout', (req, res) =>{
 })
 
 app.post('/api/createMessage', (req,res) =>{
-    let { inputBar } = req.body
-    console.log(req)
+    let { inputBar, room, username } = req.body
+    console.log(req.body)
     const db = req.app.get('db')
-    db.create_message([inputBar])
+    db.create_message([inputBar, room, username])
     .then(resp=>{
 
         res.status(200).send(resp)
@@ -104,10 +152,13 @@ app.post('/api/createChannel', (req, res) =>{
     .catch(err => console.log(err))
 })
 
-app.get('/api/getMessages', (req, res)=>{
+app.get('/api/getMessages/:room', (req, res)=>{
     const db = req.app.get('db')
-    console.log('listen')
-    db.recive_all_messages([])
+
+    // console.log('does this work')
+    // console.log(req.params)
+
+    db.recive_all_messages([req.params.room])
     .then(resp=>{
         res.status(200).send(resp)
     })
@@ -149,13 +200,16 @@ io.on("connection", socket => {
             message: `new user to room ${data.room}`
             
         });
-        console.log('testing 1')
     });
 
     socket.on("send-room-message", data => {
-
+        // console.log('data start')
+        // console.log(data)
+        // console.log("data end")
         io.in(data.room).emit("send-room-message-received", {
-            message: `${data.name} says: ${data.message}`
+            message: `${data.message}`,
+            user: `${data.name}`,
+            live: null
         });
     });
 

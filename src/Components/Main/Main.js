@@ -10,7 +10,9 @@ import { connect } from 'react-redux'
 import {updateSideDrawerOpen} from '../../ducks/reducer'
 import {updateInputBar} from '../../ducks/reducer'
 import {updateRoom} from '../../ducks/reducer'
-// import axios from 'axios';
+import {updateUserName} from '../../ducks/reducer'
+import {updatePassWord} from '../../ducks/reducer'
+import axios from 'axios';
 
 import io from "socket.io-client";
 
@@ -18,7 +20,8 @@ import io from "socket.io-client";
 
 
 // const drawerWidth = 240;
-const socket = io.connect(process.envREACT_APP_SOCKETSURL);
+const socket = io.connect(process.env.REACT_APP_SOCKETSURL);
+// const socket = io.connect();
 
 class Main extends Component {
     constructor(props){
@@ -27,23 +30,18 @@ class Main extends Component {
         this.state = {
             message:"",
             messages: [],
-            currentRoom: 1,
-            someoneTyping: false,
-
-            joined: false,
-            roomJoined: false,
             name: "",
             roomMessage: "",
             roomMessages: [],
-            username: '',
-            password: '',
-            allMessages: []
+            showButton: true,
         };
 
         this.handletest = this.handletest.bind(this)
         this.handleRoomChange = this.handleRoomChange.bind(this)
         this.joinRoom = this.joinRoom.bind(this)
-        this.sendRoomMessage = this.sendRoomMessage.bind(this)
+        // this.sendRoomMessage = this.sendRoomMessage.bind(this)
+        this.handleButton = this.handleButton.bind(this)
+        this.logoutButton = this.logoutButton.bind(this)
         ///////////////// global ///////////////////////
         socket.on("all-users", data => {
             let tempMessages = [...this.state.messages];
@@ -72,15 +70,15 @@ class Main extends Component {
         /////////////////// Room ///////////////////////
         socket.on("room-message-recived", data => {
             let tempMessages = [...this.state.roomMessage];
-            tempMessages.push(data.message);
-            console.log(this.state.roomMessage)
+            tempMessages.push(data);
             this.setState({ roomMessages: tempMessages });
         });
 
         socket.on("send-room-message-received", data => {
+            console.log(data)
             this.setState(() => {
                 let tempMessages = [...this.state.roomMessages];
-                tempMessages.push(data.message);
+                tempMessages.push(data);
                 return { roomMessages: tempMessages };
             });
         });
@@ -88,21 +86,20 @@ class Main extends Component {
     }
 
     // componentDidMount(){
-    //     axios.get('/api/getMessages')
-    //     .then(res=>{
-    //         console.log(res.data)
-
-    //         this.setState({
-    //             messages: res.data
-    //         })
-    //     })
+        
     // }
 
-    // joinChat(){
-    //     this.setState({ joined: true });
+    reciveMessages(room){
+        axios.get(`/api/getMessages/${room}`)
+        .then(res=>{
+            console.log(res.data)
 
-    //     socket.emit("join-chat", { name: this.state.name})
-    // }
+            this.setState({
+                roomMessages: res.data
+            })
+        })
+    }
+    
 
     sendMessage(){
         socket.emit("send-message", {
@@ -112,20 +109,21 @@ class Main extends Component {
     }
 
     joinRoom(){
-        this.setState({ roomJoined: true });
+        // this.setState({ roomJoined: true });
 
         socket.emit("join-room", { room: this.props.room });
-        console.log('joining')
+        // console.log('joining')
     }
 
-    sendRoomMessage(){
-        // console.log(this.props.inputBar)
-        socket.emit("send-room-message", {
-            name: this.state.name,
-            room: this.state.room,
-            message: this.props.inputBar
-        });
-    }
+    // sendRoomMessage(){
+    //     console.log(this.props.userName)
+    //     socket.emit("send-room-message", {
+    //         name: this.props.userName,
+    //         room: this.state.room,
+    //         message: this.props.inputBar
+    //     });
+    //     console.log(this.props.userName)
+    // }
 
     handletest(){
 
@@ -134,8 +132,22 @@ class Main extends Component {
 
     handleRoomChange(e){
         this.props.updateRoom(e.target.value)
+    }
 
-        console.log(this.props.room)
+    handleButton(){
+        this.setState({
+            showButton: false
+        })
+        this.joinRoom()
+        this.reciveMessages(this.props.room)
+        console.log('did it make it here')
+    }
+
+    logoutButton(){
+        axios.post('/auth/logout')
+        .then( ()=>{
+            this.props.history.push('/main');
+        })
     }
 
     renderMessages(){
@@ -147,19 +159,27 @@ class Main extends Component {
             // console.log('hey')
             return(
                 <div className = 'message-box'>
-                    <span className = 'message'>{message}</span>
+                    <span className = 'message'>{message.message}</span>
                 </div>
                 
             )
         })
         } else {
             return this.state.roomMessages.map((message) => {
-                // console.log('ho')
-                return(
-                    <div className = 'message-box'>
-                        <span className = 'message'>{message}</span>
-                    </div>
-                )
+                console.log(message)
+                if(message.live === null){
+                    return(
+                        <div className = 'message-box'>
+                            <span className = 'message'>{message.user} says {message.message}</span>
+                        </div>
+                    )
+                } else {
+                    return(
+                        <div className = 'message-box'>
+                            <span className = 'message'>{message.user_id} says {message.message}</span>
+                        </div>
+                    )
+                }
             })
         }
     }
@@ -182,7 +202,6 @@ class Main extends Component {
     
 
         return(
-            <div className = 'app'>
                 <div className = 'background'>
                     <div className = 'left'>
                         <div className={test}>
@@ -197,12 +216,15 @@ class Main extends Component {
                             <button onClick= {this.sendRoomMessage}>Send</button>
                             <button onClick = {this.joinRoom}>Room</button>
                             <button onClick={this.handletest}>test</button>
+                            <button onClick={this.logoutButton}>logout</button>
+                            <div className = 'show-messages'>
+                                {this.state.showButton ? <button onClick={this.handleButton}>See messages</button> : null}
+                            </div>
                             {this.renderMessages()}
                         </div>
                             <InputBar url = '/'/>
                     </div>
                 </div>
-            </div>
         )
     }
 }
@@ -211,8 +233,10 @@ function mapStateToProps(duckState) {
     return {
         sideDrawerOpen: duckState.sideDrawerOpen,
         inputBar: duckState.inputBar,
-        room: duckState.room
+        room: duckState.room,
+        username: duckState.userName,
+        password: duckState.passWord
     }
 }
 
-export default connect(mapStateToProps, { updateSideDrawerOpen, updateInputBar, updateRoom})(Main);
+export default connect(mapStateToProps, { updateSideDrawerOpen, updateInputBar, updateRoom, updateUserName, updatePassWord})(Main);

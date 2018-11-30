@@ -28,7 +28,6 @@ export default class Channel extends Component {
 
     render(){
         return(
-            <div id = 'app'>
                 <div className = 'background'>
                     <div className = 'log-box'>
                         <img className = 'logo' src ={''} alt = ''></img>
@@ -43,7 +42,6 @@ export default class Channel extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 }

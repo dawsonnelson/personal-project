@@ -1,1 +1,1 @@
-select * from messages
+select * from messages where channel_id = $1

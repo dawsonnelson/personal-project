@@ -5,7 +5,10 @@ import {updateSideDrawerOpen} from '../../ducks/reducer'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {updateRoom} from '../../ducks/reducer'
+// import io from "socket.io-client";
 
+// const socket = io.connect(process.env.REACT_APP_SOCKETSURL);
+// const socket = io.connect();
 
 class sideDrawer extends Component{
     constructor(props){
@@ -13,17 +16,19 @@ class sideDrawer extends Component{
 
         this.state = {
             channels: [],
+    
         }
 
         this.handleSetChannel = this.handleSetChannel.bind(this)
         this.handletest = this.handletest.bind(this)
+
     }
 
 
     componentDidMount(){
         axios.get('/api/getChannels')
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
 
             this.setState({
                 channels: res.data
@@ -33,8 +38,9 @@ class sideDrawer extends Component{
     }
 
     handleSetChannel(i){
-        // console.log(this.props)
         this.props.updateRoom(i)
+        this.props.updateSideDrawerOpen();
+        // console.log(this.props)
         
     }
 
@@ -42,6 +48,7 @@ class sideDrawer extends Component{
 
         console.log(this.props)
     }
+
 
     renderChannels(){ 
         return this.state.channels.map((channel) =>{

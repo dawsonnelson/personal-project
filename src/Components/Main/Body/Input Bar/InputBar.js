@@ -6,10 +6,13 @@ import Icon from '@material-ui/core/Icon';
 import { updateInputBar } from '../../../../ducks/reducer';
 import { updateRoom } from '../../../../ducks/reducer';
 import { connect } from 'react-redux'
+import {updateUserName} from '../../../../ducks/reducer'
+import {updatePassWord} from '../../../../ducks/reducer'
+import {resetInput} from '../../../../ducks/reducer'
 import io from "socket.io-client"
 
 
-const socket = io.connect(process.envREACT_APP_SOCKETSURL)
+const socket = io.connect(process.env.REACT_APP_SOCKETSURL)
 
 
 class InputBar extends Component{
@@ -26,6 +29,7 @@ class InputBar extends Component{
 
         this.handleTextInput = this.handleTextInput.bind(this)
         this.handleCreateMessage = this.handleCreateMessage.bind(this)
+        this.handleReset = this.handleReset.bind(this)
         
     }
 
@@ -43,25 +47,29 @@ class InputBar extends Component{
             let {inputBar} = this.props
     
             axios.post('/api/createMessage', {inputBar})
-            .then(res=>{
+            this.handleReset();
                 // console.log(res)
-            })
         } else {
+            console.log(this.props)
             // console.log('emit hit')
             socket.emit("send-room-message", {
-                name: this.state.name,
+                name: this.props.username,
                 room: this.props.room,
                 message: this.props.inputBar,
             })
-            console.log("some room")
-            let {inputBar} = this.props
+            
+            let {inputBar, room, username} = this.props
+            console.log(this.props)
     
-            axios.post('/api/createMessage', {inputBar})
-            .then(res=>{
-                // console.log(res)
-            })
+            axios.post('/api/createMessage', {inputBar, room, username})
+            this.handleReset()
+            
         }
         
+    }
+
+    handleReset(){
+        this.props.resetInput()
     }
 
 
@@ -95,9 +103,11 @@ function mapStateToProps(duckState) {
     return {
         inputBar: duckState.inputBar,
         room: duckState.room,
+        username: duckState.userName,
+        password: duckState.passWord
     }
 }
 
-export default connect(mapStateToProps, { updateInputBar, updateRoom})(InputBar);
+export default connect(mapStateToProps, { updateInputBar, updateRoom, updateUserName, updatePassWord, resetInput})(InputBar);
 
 //<img className = 'picture-input-button-image' src ={add_button} alt=''/>

@@ -7,7 +7,9 @@
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
+    "alert-node": "^1.2.2",
     "auth0": "^2.14.0",
+    "auth0-js": "^9.8.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
