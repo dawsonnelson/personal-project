@@ -1,0 +1,1 @@
+update messages set message = $1 where id = $2

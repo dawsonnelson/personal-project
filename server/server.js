@@ -175,6 +175,14 @@ app.get('/api/getChannels', (req, res) =>{
     .catch(console.log)
 })
 
+app.delete(`/api/delete/:message`, (req, res) =>{
+    console.log(req.params)
+    const db = req.app.get('db')
+    
+    db.delete_message([req.params.message])
+    
+})
+
 
 
 

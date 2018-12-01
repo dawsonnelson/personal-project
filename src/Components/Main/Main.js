@@ -42,6 +42,7 @@ class Main extends Component {
         // this.sendRoomMessage = this.sendRoomMessage.bind(this)
         this.handleButton = this.handleButton.bind(this)
         this.logoutButton = this.logoutButton.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
         ///////////////// global ///////////////////////
         socket.on("all-users", data => {
             let tempMessages = [...this.state.messages];
@@ -127,7 +128,7 @@ class Main extends Component {
 
     handletest(){
 
-        console.log(this.props)
+        console.log(this.state)
     }
 
     handleRoomChange(e){
@@ -141,6 +142,12 @@ class Main extends Component {
         this.joinRoom()
         this.reciveMessages(this.props.room)
         console.log('did it make it here')
+    }
+
+    handleDelete(i){
+        console.log(i)
+        axios.delete(`/api/delete/${i}`)
+        .then(console.log('delete hit'))
     }
 
     logoutButton(){
@@ -177,6 +184,10 @@ class Main extends Component {
                     return(
                         <div className = 'message-box'>
                             <span className = 'message'>{message.user_id} says {message.message}</span>
+                            <div className = 'delete-div'>
+                                <button className = 'delete-button' onClick ={() => this.handleDelete(message.id)}></button>
+                                <button className = 'edit-button' onClick={this.handleEdit}></button>
+                            </div>
                         </div>
                     )
                 }

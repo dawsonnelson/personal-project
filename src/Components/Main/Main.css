@@ -41,6 +41,14 @@
     width: 100%;
 }
 
+.delete-button{
+    background-color: black;
+}
+
+.edit-button{
+    background-color: red;
+}
+
 /* @media(max-width: 1024px){
     .left{
         width: 30%;
