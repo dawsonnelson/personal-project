@@ -127,7 +127,7 @@ class Main extends Component {
 
     handletest(){
 
-        console.log(this.state)
+        console.log(this.props)
     }
 
     handleRoomChange(e){

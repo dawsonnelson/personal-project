@@ -8,7 +8,6 @@ import { updateRoom } from '../../../../ducks/reducer';
 import { connect } from 'react-redux'
 import {updateUserName} from '../../../../ducks/reducer'
 import {updatePassWord} from '../../../../ducks/reducer'
-import {resetInput} from '../../../../ducks/reducer'
 import io from "socket.io-client"
 
 
@@ -29,7 +28,6 @@ class InputBar extends Component{
 
         this.handleTextInput = this.handleTextInput.bind(this)
         this.handleCreateMessage = this.handleCreateMessage.bind(this)
-        this.handleReset = this.handleReset.bind(this)
         
     }
 
@@ -47,8 +45,9 @@ class InputBar extends Component{
             let {inputBar} = this.props
     
             axios.post('/api/createMessage', {inputBar})
-            this.handleReset();
                 // console.log(res)
+            this.props.updateInputBar("")
+                
         } else {
             console.log(this.props)
             // console.log('emit hit')
@@ -62,14 +61,9 @@ class InputBar extends Component{
             console.log(this.props)
     
             axios.post('/api/createMessage', {inputBar, room, username})
-            this.handleReset()
-            
+            this.props.updateInputBar("")
         }
         
-    }
-
-    handleReset(){
-        this.props.resetInput()
     }
 
 
@@ -91,7 +85,7 @@ class InputBar extends Component{
                 <div className = 'InputBar-Background'>
                     <div className = 'inputs'>
                         <IconButton className = 'picture-input-button' variant="contained"><Icon/></IconButton>
-                        <input className = 'text-input' onChange = {this.handleTextInput} value={this.props.textInput}></input>
+                        <input className = 'text-input' onChange = {this.handleTextInput} value={this.props.inputBar}></input>
                         <IconButton className = 'enter-button' variant="contained" onClick={this.handleCreateMessage}><Icon/></IconButton>  
                     </div> 
                 </div>
@@ -108,6 +102,6 @@ function mapStateToProps(duckState) {
     }
 }
 
-export default connect(mapStateToProps, { updateInputBar, updateRoom, updateUserName, updatePassWord, resetInput})(InputBar);
+export default connect(mapStateToProps, { updateInputBar, updateRoom, updateUserName, updatePassWord})(InputBar);
 
 //<img className = 'picture-input-button-image' src ={add_button} alt=''/>
