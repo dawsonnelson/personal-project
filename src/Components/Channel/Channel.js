@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './Channel.css'
+import { connect } from 'react-redux'
+import {updateUserId} from '../../ducks/reducer'
+
 import axios from 'axios'
 
-export default class Channel extends Component {
+ class Channel extends Component {
     constructor(props){
         super(props);
 
@@ -15,7 +18,7 @@ export default class Channel extends Component {
     }
 
     createChannel(){
-        axios.post('/api/createChannel', {channel: this.state.channel})
+        axios.post('/api/createChannel', {channel: this.state.channel, userId: this.props.userId})
         .then(this.props.history.push('/'))
     }
 
@@ -23,7 +26,7 @@ export default class Channel extends Component {
         this.setState({
             channel: e.target.value
         })
-        console.log(this.state.channel)
+        // console.log(this.props)
     }
 
     render(){
@@ -45,3 +48,11 @@ export default class Channel extends Component {
         )
     }
 }
+
+function mapStateToProps(duckState) {
+    return {
+        userId: duckState.userId
+    }
+}
+
+export default connect(mapStateToProps, {updateUserId})(Channel);

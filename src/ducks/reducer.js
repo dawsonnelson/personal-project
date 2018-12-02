@@ -4,6 +4,9 @@ const initialState = {
     room: "",
     userName: "",
     passWord: "",
+    userId: 0,
+    showButton: true,
+    roomMessages: []
 }
 
 const UPDATE_SIDEDRAWEROPEN = 'UPDATE_SIDEDRAWEROPEN';
@@ -11,7 +14,10 @@ const UPDATE_INPUTBAR = 'UPDATE_INPUTBAR';
 const UPDATE_ROOM = 'UPDATE_ROOM';
 const UPDATE_USERNAME = 'UPDATE_USERNAME';
 const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
-const RESET_INPUT = 'RESET_INPUT'
+const RESET_INPUT = 'RESET_INPUT';
+const UPDATE_SHOWBUTTON = 'UPDATE_SHOWBUTTON';
+const UPDATE_ROOMMESSAGES = 'UPDATE_ROOMMESSAGES';
+const UPDATE_USERID = 'UPDATE_USERID';
 
 function reducer( state = initialState, action) {
     console.log('REDUCER HIT: Action ->', action );
@@ -30,6 +36,15 @@ function reducer( state = initialState, action) {
 
         case UPDATE_PASSWORD:
             return Object.assign( {}, state, {passWord: action.payload});
+
+        case UPDATE_SHOWBUTTON:
+            return Object.assign( {}, state, {showButton: !state.showButton});
+
+        case UPDATE_ROOMMESSAGES:
+            return Object.assign( {}, state, {roomMessages: action.payload});
+
+        case UPDATE_USERID:
+            return Object.assign({}, state, {userId: action.payload});
 
         case RESET_INPUT:
             return initialState
@@ -73,10 +88,32 @@ export function updateRoom (room){
         }
     }
 
+    export function updateShowButton (){
+        return{
+            type: UPDATE_SHOWBUTTON,
+            payload: null
+        }
+    }
+
+    export function updateRoomMessages (roomMessages){
+        return{
+            type: UPDATE_ROOMMESSAGES,
+            payload: roomMessages
+        }
+    }
+
     export function resetInput(){
         return{
             type: RESET_INPUT
         }
     }
+
+    export function updateUserId(userId){
+        return{
+            type: UPDATE_USERID,
+            payload: userId
+        }
+    }
+    
 
 export default reducer;

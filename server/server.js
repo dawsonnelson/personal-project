@@ -120,7 +120,7 @@ app.post('/api/auth/login', (req, res) => {
         console.log(user)
         // req.session.userId = user[0].id
         // console.log(req.session);
-        res.sendStatus(200);
+        res.send(user)
     })
 })
 
@@ -145,7 +145,7 @@ app.post('/api/createMessage', (req,res) =>{
 app.post('/api/createChannel', (req, res) =>{
     const db = req.app.get('db');
 
-    db.create_channel([req.body.channel])
+    db.create_channel([req.body.channel, req.body.userId])
     .then(message => {
         res.status(200).send(message)
     })
@@ -165,10 +165,10 @@ app.get('/api/getMessages/:room', (req, res)=>{
     .catch(console.log)
 })
 
-app.get('/api/getChannels', (req, res) =>{
+app.get('/api/getChannels/:userId', (req, res) =>{
     const db = req.app.get('db')
 
-    db.get_channels([])
+    db.get_channels([req.params.userId])
     .then(resp=>{
         res.status(200).send(resp)
     })
@@ -180,7 +180,24 @@ app.delete(`/api/delete/:message`, (req, res) =>{
     const db = req.app.get('db')
     
     db.delete_message([req.params.message])
-    
+    .then(resp=>{
+        res.status(200).send(resp)
+    })
+    .catch(console.log)
+})
+
+app.put(`/api/editMessage`, (req, res)=>{
+    // console.log(req.body)
+    const db = req.app.get('db')
+    let message = req.body.newMessage
+    let id = req.body.i
+    // console.log(req.body.i)
+
+    db.edit_message([message, id])
+    .then(resp=>{
+        res.status(200).send(resp[0])
+    })
+    .catch(console.log)
 })
 
 
@@ -205,7 +222,7 @@ io.on("connection", socket => {
         socket.join(data.room);
 
         io.to(data.room).emit("room-message-recived", {
-            message: `new user to room ${data.room}`
+            // message: `new user to room ${data.room}`
             
         });
     });

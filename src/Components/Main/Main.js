@@ -12,6 +12,7 @@ import {updateInputBar} from '../../ducks/reducer'
 import {updateRoom} from '../../ducks/reducer'
 import {updateUserName} from '../../ducks/reducer'
 import {updatePassWord} from '../../ducks/reducer'
+import {updateShowButton} from '../../ducks/reducer'
 import axios from 'axios';
 
 import io from "socket.io-client";
@@ -72,7 +73,7 @@ class Main extends Component {
         socket.on("room-message-recived", data => {
             let tempMessages = [...this.state.roomMessage];
             tempMessages.push(data);
-            this.setState({ roomMessages: tempMessages });
+            // this.setState({ roomMessages: tempMessages });
         });
 
         socket.on("send-room-message-received", data => {
@@ -82,13 +83,10 @@ class Main extends Component {
                 tempMessages.push(data);
                 return { roomMessages: tempMessages };
             });
+            // this.reciveMessages(this.props.room)
         });
 
     }
-
-    // componentDidMount(){
-        
-    // }
 
     reciveMessages(room){
         axios.get(`/api/getMessages/${room}`)
@@ -128,7 +126,7 @@ class Main extends Component {
 
     handletest(){
 
-        console.log(this.state)
+        console.log(this.props)
     }
 
     handleRoomChange(e){
@@ -136,9 +134,7 @@ class Main extends Component {
     }
 
     handleButton(){
-        this.setState({
-            showButton: false
-        })
+        this.props.updateShowButton();
         this.joinRoom()
         this.reciveMessages(this.props.room)
         console.log('did it make it here')
@@ -147,7 +143,26 @@ class Main extends Component {
     handleDelete(i){
         console.log(i)
         axios.delete(`/api/delete/${i}`)
-        .then(console.log('delete hit'))
+        .then(
+            this.reciveMessages(this.props.room)
+        )
+    }
+
+    handleEdit(i){
+        const newMessage = this.props.inputBar
+        console.log(this.props.inputBar)
+        console.log(newMessage)
+        axios.put(`/api/editMessage`,{
+            newMessage,
+            i
+        } )
+        .then(res=>{
+            console.log(res.data)
+            this.reciveMessages(res.data.channel_id)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     }
 
     logoutButton(){
@@ -172,26 +187,31 @@ class Main extends Component {
             )
         })
         } else {
-            return this.state.roomMessages.map((message) => {
-                console.log(message)
-                if(message.live === null){
-                    return(
-                        <div className = 'message-box'>
-                            <span className = 'message'>{message.user} says {message.message}</span>
-                        </div>
-                    )
-                } else {
-                    return(
-                        <div className = 'message-box'>
-                            <span className = 'message'>{message.user_id} says {message.message}</span>
-                            <div className = 'delete-div'>
-                                <button className = 'delete-button' onClick ={() => this.handleDelete(message.id)}></button>
-                                <button className = 'edit-button' onClick={this.handleEdit}></button>
+
+            if(this.props.showButton === true){
+                return []
+            } else{
+                return this.state.roomMessages.map((message) => {
+                    // console.log(message)
+                    if(message.live === null){
+                        return(
+                            <div className = 'message-box'>
+                                <span className = 'message'>{message.user} says {message.message}</span>
                             </div>
-                        </div>
-                    )
-                }
-            })
+                        )
+                    } else {
+                        return(
+                            <div className = 'message-box'>
+                                <span className = 'message'>{message.user_id} says {message.message}</span>
+                                <div className = 'delete-div'>
+                                    <button className = 'delete-button' onClick ={() => this.handleDelete(message.id)}></button>
+                                    <button className = 'edit-button' onClick={() => this.handleEdit(message.id)}></button>
+                                </div>
+                            </div>
+                        )
+                    }
+                })
+            }
         }
     }
 
@@ -229,7 +249,7 @@ class Main extends Component {
                             <button onClick={this.handletest}>test</button>
                             <button onClick={this.logoutButton}>logout</button>
                             <div className = 'show-messages'>
-                                {this.state.showButton ? <button onClick={this.handleButton}>See messages</button> : null}
+                                {this.props.showButton ? <button onClick={this.handleButton}>See messages</button> : null}
                             </div>
                             {this.renderMessages()}
                         </div>
@@ -246,8 +266,14 @@ function mapStateToProps(duckState) {
         inputBar: duckState.inputBar,
         room: duckState.room,
         username: duckState.userName,
-        password: duckState.passWord
+        password: duckState.passWord,
+        showButton: duckState.showButton
     }
 }
 
-export default connect(mapStateToProps, { updateSideDrawerOpen, updateInputBar, updateRoom, updateUserName, updatePassWord})(Main);
+export default connect(mapStateToProps, { updateSideDrawerOpen, updateInputBar, updateRoom, updateUserName, updatePassWord, updateShowButton})(Main);
+
+
+
+
+/// when redering in messages needs to order them by id

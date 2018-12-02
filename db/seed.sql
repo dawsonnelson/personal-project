@@ -16,6 +16,7 @@ create table messages (
 create table channels (
     id serial primary key,
     channel_name varchar(200),
+    users integer,
     channel_image varchar(200)
 )
 

@@ -2,9 +2,11 @@ import React, {Component} from 'react'
 import './SideDrawer.css'
 import { connect } from 'react-redux'
 import {updateSideDrawerOpen} from '../../ducks/reducer'
+import {updateShowButton} from '../../ducks/reducer'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {updateRoom} from '../../ducks/reducer'
+import {updateUserId} from '../../ducks/reducer'
 // import io from "socket.io-client";
 
 // const socket = io.connect(process.env.REACT_APP_SOCKETSURL);
@@ -21,12 +23,12 @@ class sideDrawer extends Component{
 
         this.handleSetChannel = this.handleSetChannel.bind(this)
         this.handletest = this.handletest.bind(this)
-
+        
     }
 
 
     componentDidMount(){
-        axios.get('/api/getChannels')
+        axios.get(`/api/getChannels/${this.props.userId}`)
         .then(res=>{
             // console.log(res.data)
 
@@ -40,7 +42,8 @@ class sideDrawer extends Component{
     handleSetChannel(i){
         this.props.updateRoom(i)
         this.props.updateSideDrawerOpen();
-        // console.log(this.props)
+        this.props.updateShowButton();
+        console.log(this.props)
         
     }
 
@@ -75,8 +78,10 @@ class sideDrawer extends Component{
 function mapStateToProps(duckState) {
     return {
         sideDrawerOpen: duckState.sideDrawerOpen,
-        room: duckState.room
+        room: duckState.room,
+        showButton: duckState.showButton,
+        userId: duckState.userId
     }
 }
 
-export default connect(mapStateToProps, { updateSideDrawerOpen, updateRoom})(sideDrawer);
+export default connect(mapStateToProps, { updateSideDrawerOpen, updateRoom, updateShowButton, updateUserId})(sideDrawer);

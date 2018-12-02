@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import {updateUserName} from '../../ducks/reducer'
 import {updatePassWord} from '../../ducks/reducer'
+import {updateUserId} from '../../ducks/reducer'
 import axios from 'axios'
 import './Auth.css'
 
@@ -42,16 +43,23 @@ class Auth extends Component {
         
         axios.post('/api/auth/register', {username: this.props.userName, password: this.props.passWord}) 
         .then((res)=>{
-
+            console.log(res.data[0].id)
+            this.props.updateUserId(res.data[0].id)
             this.props.history.push('/')
 
         }).catch((err) => { console.log(err)})
     }
 
     handleLogin(){
-        console.log(this.props)
+        // console.log(this.props)
         axios.post('/api/auth/login', {username: this.props.userName, password: this.props.passWord})
-        .then(this.props.history.push('/'))
+        .then((res)=>{
+            console.log(res.data[0].id)
+            this.props.updateUserId(res.data[0].id)
+            this.props.history.push('/')
+            console.log(this.props)
+            
+        }).catch((err) => { console.log(err)})
     }
 
     render(){
@@ -85,8 +93,9 @@ class Auth extends Component {
 function mapStateToProps(duckState) {
     return {
         userName: duckState.userName,
-        passWord: duckState.passWord
+        passWord: duckState.passWord,
+        userId: duckState.userId
     }
 }
 
-export default connect(mapStateToProps, { updateUserName, updatePassWord})(Auth);
+export default connect(mapStateToProps, { updateUserName, updatePassWord, updateUserId})(Auth);
