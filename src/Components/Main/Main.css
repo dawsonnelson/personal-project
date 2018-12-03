@@ -97,23 +97,23 @@ img{
 
 @media (max-width: 2410px){
     img.edit-image{
-        width: 125%;
-        height: 100%;
+        width: 2vw;
+        height: 6vh;
     }
 
     img.delete-image{
-        width: 125%;
-        height: 100%;
+        width: 2vw;
+        height: 6vh;
     }
 
     .delete-button{
-        width: 10%;
-        height: 60%;
+        width: 35%;
+        height: 100%;
     }
 
     .edit-button{
-        width: 10%;
-        height: 60%;
+        width: 35%;
+        height: 100%;
     }
 
     .message{
@@ -124,23 +124,23 @@ img{
 
 @media (max-width: 1440px){
     img.edit-image{
-        width: 125%;
-        height: 100%;
+        width: 3vw;
+        height: 5vh;
     }
 
     img.delete-image{
-        width: 125%;
-        height: 100%;
+        width: 3vw;
+        height: 5vh;
     }
 
     .delete-button{
-        width: 20%;
-        height: 60%;
+        width: 45%;
+        height: 100%;
     }
 
     .edit-button{
-        width: 20%;
-        height: 60%;
+        width: 45%;
+        height: 100%;
     }
 
     .message{
@@ -151,23 +151,23 @@ img{
 
 @media (max-width: 1024px){
     img.edit-image{
-        width: 125%;
+        width: 4vw;
         height: 100%;
     }
 
     img.delete-image{
-        width: 125%;
+        width: 4vw;
         height: 100%;
     }
 
     .delete-button{
-        width: 20%;
-        height: 50%;
+        width: 50%;
+        height: 75%;
     }
 
     .edit-button{
-        width: 20%;
-        height: 50%;
+        width: 50%;
+        height: 75%;
     }
 
     .message{
@@ -177,23 +177,23 @@ img{
 
 @media(max-width: 768px){
     img.edit-image{
-        width: 125%;
+        width: 4vw;
         height: 100%;
     }
 
     img.delete-image{
-        width: 125%;
+        width: 4vw;
         height: 100%;
     }
 
     .delete-button{
-        width: 25%;
-        height: 50%;
+        width: 50%;
+        height: 75%;
     }
 
     .edit-button{
-        width: 25%;
-        height: 50%;
+        width: 50%;
+        height: 75%;
     }
 
     .message{
@@ -203,12 +203,12 @@ img{
 
 @media(max-width: 425px){
     img.edit-image{
-        width: 125%;
+        width: 8vw;
         height: 100%;
     }
 
     img.delete-image{
-        width: 125%;
+        width: 8vw;
         height: 100%;
     }
 
@@ -234,12 +234,12 @@ img{
     }
 
     img.edit-image{
-        width: 150%;
+        width: 8vw;
         height: 100%;
     }
 
     img.delete-image{
-        width: 150%;
+        width: 8vw;
         height: 100%;
     }
 
@@ -267,23 +267,23 @@ img{
     }
 
     img.edit-image{
-        width: 200%;
+        width: 8vw;
         height: 100%;
     }
 
     img.delete-image{
-        width: 200%;
+        width: 8vw;
         height: 100%;
     }
 
     .delete-button{
-        width: 100%;
-        height: 45%;
+        width: 50%;
+        height: 50%;
     }
 
     .edit-button{
-        width: 100%;
-        height: 45%;
+        width: 50%;
+        height: 50%;
     }
 
     .message{

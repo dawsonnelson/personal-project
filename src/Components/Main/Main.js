@@ -13,6 +13,8 @@ import {updateRoom} from '../../ducks/reducer'
 import {updateUserName} from '../../ducks/reducer'
 import {updatePassWord} from '../../ducks/reducer'
 import {updateShowButton} from '../../ducks/reducer'
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 // import deleteImage from '../assests/delete.png'
 // import editImage from '../assests/edit.png'
 import axios from 'axios';
@@ -206,8 +208,8 @@ class Main extends Component {
                             <div className = 'message-box'>
                                 <span className = 'message'>{message.user_id} : {message.message}</span>
                                 <div className = 'delete-div'>
-                                    <button className = 'delete-button' onClick ={() => this.handleDelete(message.id)}><img className = "delete-image" src="https://cdn.discordapp.com/attachments/202974546100224000/519004507821309952/unknown.png" alt=""/></button>
-                                    <button className = 'edit-button' onClick={() => this.handleEdit(message.id)}><img className = "edit-image" src="https://cdn.discordapp.com/attachments/202974546100224000/518998102468984833/edit-editor-pen-pencil-write-icon--4.png" alt = ""/></button>
+                                    <IconButton className = 'delete-button' onClick ={() => this.handleDelete(message.id)}><img className = "delete-image" src="https://cdn.discordapp.com/attachments/202974546100224000/519004507821309952/unknown.png" alt=""/></IconButton>
+                                    <IconButton className = 'edit-button' onClick={() => this.handleEdit(message.id)}><img className = "edit-image" src="https://cdn.discordapp.com/attachments/202974546100224000/518998102468984833/edit-editor-pen-pencil-write-icon--4.png" alt = ""/></IconButton>
                                 </div>
                             </div>
                         )
