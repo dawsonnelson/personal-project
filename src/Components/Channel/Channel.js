@@ -23,7 +23,7 @@ import axios from 'axios'
         .then((res)=>{
             this.props.updateSideDrawerOpen()
             this.props.updateRoom(this.state.updateRoom)
-            this.props.history.push('/')
+            this.props.history.push('/main')
         })
     }
 
@@ -40,7 +40,7 @@ import axios from 'axios'
                 <div className = 'background'>
                     <div className = 'channel-log-box'>
                         <img className = 'logo' src ={''} alt = ''></img>
-                        <div>
+                        <div className = 'for-channel'>
                             <span className = 'channel-title'>Create Channel</span>
                         </div>
                         <div className = 'channel-something'>

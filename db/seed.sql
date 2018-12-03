@@ -13,6 +13,13 @@ create table messages (
     friend_id int
 )
 
+create table channel_users (
+    id serial primary key,
+    user_id integer,
+    channel_id integer
+
+)
+
 create table channels (
     id serial primary key,
     channel_name varchar(200),

@@ -11,8 +11,8 @@ import {updatePassWord} from '../../../../ducks/reducer'
 import io from "socket.io-client"
 
 
-// const socket = io.connect(process.env.REACT_APP_SOCKETSURL)
-const socket = io.connect()
+const socket = io.connect(process.env.REACT_APP_SOCKETSURL)
+// const socket = io.connect()
 
 class InputBar extends Component{
     constructor(props){
@@ -49,7 +49,7 @@ class InputBar extends Component{
             this.props.updateInputBar("")
                 
         } else {
-            console.log(this.props)
+            // console.log(this.props)
             // console.log('emit hit')
             socket.emit("send-room-message", {
                 name: this.props.username,

@@ -45,7 +45,7 @@ class Auth extends Component {
         .then((res)=>{
             console.log(res.data[0].id)
             this.props.updateUserId(res.data[0].id)
-            this.props.history.push('/')
+            this.props.history.push('/Main')
 
         }).catch((err) => { console.log(err)})
     }
@@ -56,7 +56,7 @@ class Auth extends Component {
         .then((res)=>{
             console.log(res.data[0].id)
             this.props.updateUserId(res.data[0].id)
-            this.props.history.push('/')
+            this.props.history.push('/Main')
             console.log(this.props)
             
         }).catch((err) => { console.log(err)})

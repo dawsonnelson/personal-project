@@ -76,6 +76,21 @@
     /* background-color: red; */
 }
 
+.show-messages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5%;
+}
+
+.see-messages-button{
+    width: 35%;
+    height: 5vh;
+    background: lightgray;
+    border-radius: 10px;
+}
+
 img{
     width: 100%;
     height: 100%;

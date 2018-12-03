@@ -14,8 +14,8 @@ export default (
     // above is the correct code
 
     <Switch>
-        <Route exact path = '/' component={Main}/>
-        <Route path = '/Main' component={Auth}/>
+        <Route exact path = '/' component={Auth}/>
+        <Route path = '/Main' component={Main}/>
         <Route path = '/Channel' component={Channel}/>
 
     </Switch>

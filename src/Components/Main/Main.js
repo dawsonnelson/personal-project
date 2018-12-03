@@ -201,6 +201,10 @@ class Main extends Component {
                         return(
                             <div className = 'message-box'>
                                 <span className = 'message'>{message.user} : {message.message}</span>
+                                <div className = 'delete-div'>
+                                    <IconButton className = 'delete-button' onClick ={() => this.handleDelete(message.id)}><img className = "delete-image" src="https://cdn.discordapp.com/attachments/202974546100224000/519004507821309952/unknown.png" alt=""/></IconButton>
+                                    <IconButton className = 'edit-button' onClick={() => this.handleEdit(message.id)}><img className = "edit-image" src="https://cdn.discordapp.com/attachments/202974546100224000/518998102468984833/edit-editor-pen-pencil-write-icon--4.png" alt = ""/></IconButton>
+                                </div>
                             </div>
                         )
                     } else {
@@ -253,7 +257,7 @@ class Main extends Component {
                             <button onClick={this.handletest}>test</button>
                             <button onClick={this.logoutButton}>logout</button> */}
                             <div className = 'show-messages'>
-                                {this.props.showButton ? <button onClick={this.handleButton}>See messages</button> : null}
+                                {this.props.showButton ? <button className = "see-messages-button" onClick={this.handleButton}>See messages</button> : null}
                             </div>
                             {this.renderMessages()}
                         </div>

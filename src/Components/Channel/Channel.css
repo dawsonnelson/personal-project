@@ -27,6 +27,7 @@
     rgba(0, 0, 0, .1), 0 1px 2px 0 
     rgba(0, 0, 0, .2);
     
+    
 }
 
 .logo {
@@ -52,16 +53,25 @@
 }
 
 .channel-something{
-    margin-top: 20%
+    margin-top: 20%;
+    justify-content: center;
+    display: flex;
 }
 
 .create-button-div{
     margin-top: 20%;
+    justify-content: center;
+    display: flex;
 }
 
 .channel-name-input{
     width: 65%;
     height: 30px;
+}
+
+.for-channel{
+    justify-content: center;
+    display: flex;
 }
 
 @media (max-width: 2410px){
