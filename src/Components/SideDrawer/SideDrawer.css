@@ -47,4 +47,46 @@ a:link{
 }
 
 
+@media (max-width: 2410px){
+    .side-drawer{
+        width: 30%
+    }
+}
+@media (max-width: 1440px){
+    .side-drawer{
+        width: 30%;
+    }
+}
+
+@media (max-width: 1024px){
+    .side-drawer{
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px){
+    .side-drawer{
+        width: 30%;
+    }
+}
+
+@media (max-width: 425px){
+    .side-drawer{
+        width: 65%;
+    }
+}
+
+@media (max-width: 375px){
+    .side-drawer{
+        width: 70%;
+    }
+}
+
+@media (max-width: 320px){
+    .side-drawer{
+        width: 80%;
+    }
+}
+
+
 

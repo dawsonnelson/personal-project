@@ -11,6 +11,11 @@ class NavTop extends Component{
         this.state = {
 
         }
+        this.handleLogout=this.handleLogout.bind(this)
+    }
+
+    handleLogout(){
+        this.props.history.push('/')
     }
     
     render(){
@@ -22,6 +27,7 @@ class NavTop extends Component{
             </div>
             <div className='channel-name'>
                 <span className='c'>{this.props.room}</span>
+                <button className="logout" onClick={()=>this.handleLogout()}></button>
             </div>
         </div>
     )

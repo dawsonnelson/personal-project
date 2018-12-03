@@ -77,8 +77,8 @@ class Auth extends Component {
                             <button className = 'login-register' onClick ={this.handleLogin}>Login</button>
                         </div>
                         <div className = 'userName-input'>
-                            <input className = 'userName-inputBar' onChange = {this.handleNameInput}></input>
-                            <input className = 'userName-inputBar' onChange = {this.handlePasswordInput}></input>
+                            <input className = 'userName-inputBar' onChange = {this.handleNameInput} placeholder = "Username"></input>
+                            <input className = 'userName-inputBar' onChange = {this.handlePasswordInput} placeholder = "Password"></input>
                         </div>
                     </div>
                 </div>
