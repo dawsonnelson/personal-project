@@ -70,7 +70,7 @@ class Auth extends Component {
                     <div className = 'log-box'>
                         <img className = 'logo' src ={''} alt = ''></img>
                         <div>
-                            <span className = 'title'>Discord clone</span>
+                            <span className = 'title'>Personal-Project</span>
                         </div>
                         <div className = 'something'>
                             <button className = 'login-register' onClick ={this.handleRegister}>Register</button>
