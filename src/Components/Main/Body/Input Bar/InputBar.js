@@ -11,8 +11,8 @@ import {updatePassWord} from '../../../../ducks/reducer'
 import io from "socket.io-client"
 
 
-const socket = io.connect(process.env.REACT_APP_SOCKETSURL)
-
+// const socket = io.connect(process.env.REACT_APP_SOCKETSURL)
+const socket = io.connect()
 
 class InputBar extends Component{
     constructor(props){

@@ -25,8 +25,8 @@ import io from "socket.io-client";
 
 
 // const drawerWidth = 240;
-const socket = io.connect(process.env.REACT_APP_SOCKETSURL);
-// const socket = io.connect();
+// const socket = io.connect(process.env.REACT_APP_SOCKETSURL);
+const socket = io.connect();
 
 class Main extends Component {
     constructor(props){
