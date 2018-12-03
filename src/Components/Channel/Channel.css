@@ -1,3 +1,7 @@
+#app{
+    width: 100vw
+    }
+
 .background{
     background-color: #2c2f33;
     width: 100%;
@@ -7,18 +11,18 @@
     display: flex;
 }
 
-.log-box{
+.channel-log-box{
     background-color: #36393F;
     opacity: .5px ;
     width: 240px;
     height: 364px;
-    margin-top: 30%;
-    margin-left: 5%;
+    margin-top: 45%;
+    margin-left: 2%;
     padding: 10px;
     position: relative;
-    
+        
     border-radius: 15px;
-    
+        
     box-shadow: 0 1px 3px 0
     rgba(0, 0, 0, .1), 0 1px 2px 0 
     rgba(0, 0, 0, .2);
@@ -29,28 +33,206 @@
     margin-top: 40px;
 }
 
-.title{
+.channel-title{
     font-size: 30px;
     color: white;
     font-weight: bold
     
 }
 
-.login-register{
+.channel-login-register{
     border-radius: 10px;
     background-color: #7289DA;
     color: #ffffff;
-    font-size: 15px;
-    width: 65%;
-    height: 40px;
+    font-size: 20px;
+    width: 70%;
+    height: 55px;
     margin-top: 10px;
     font-weight: bold;
 }
 
-.something{
+.channel-something{
     margin-top: 20%
 }
 
 .create-button-div{
     margin-top: 20%;
+}
+
+.channel-name-input{
+    width: 65%;
+    height: 30px;
+}
+
+@media (max-width: 2410px){
+    .channel-log-box{
+        margin-top: 0%;
+        width: 50%;
+        height: 80%;
+    }
+
+    .channel-something{
+        margin-top: 15%
+    }
+
+    .create-button-div{
+        margin-top: 15%;
+    }
+
+    .channel-login-register{
+        font-size: 45px;
+    }
+
+    .channel-name-input{
+        font-size: 30px;
+    }
+
+    .channel-title{
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 1440px){
+    .channel-log-box{
+        margin-top: 1%;
+        width: 50%;
+        height: 80%;
+    }
+
+    .channel-something{
+        margin-top: 15%
+    }
+
+    .create-button-div{
+        margin-top: 15%;
+    }
+
+    .channel-login-register{
+        font-size: 35px;
+    }
+
+    .channel-name-input{
+        font-size: 30px;
+    }
+
+    .channel-title{
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 1024px){
+    .channel-log-box{
+        margin-top: 2%;
+        width: 75%;
+        height: 70%;
+    }
+
+    .channel-something{
+        margin-top: 10%
+    }
+
+    .create-button-div{
+        margin-top: 10%;
+    }
+
+    .channel-name-input{
+        font-size: 30px;
+    }
+
+    .channel-login-register{
+        font-size: 30px;
+    }
+
+    .channel-title{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 768px){
+    .channel-log-box{
+        margin-top: 5%;
+        width: 75%;
+        height: 70%;
+    }
+
+    .channel-something{
+        margin-top: 15%
+    }
+
+    .create-button-div{
+        margin-top: 15%;
+    }
+
+    .channel-name-input{
+        font-size: 30px;
+    }
+
+    .channel-login-register{
+        font-size: 30px;
+    }
+
+    .channel-title{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 425px){
+    .channel-log-box{
+        margin-top: 5%;
+        width: 70%;
+        height: 65%;
+    }
+
+    .channel-something{
+        margin-top: 20%
+    }
+
+    .create-button-div{
+        margin-top: 25%;
+    }
+
+    .channel-name-input{
+        font-size: 23px;
+    }
+
+    .channel-login-register{
+        font-size: 20px;
+    }
+
+    .channel-title{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 375px){
+    .channel-log-box{
+        margin-top: 10%
+    }
+
+    .channel-name-input{
+        font-size: 20px
+    }
+
+    .channel-login-register{
+        font-size: 20px;
+    }
+
+    .channel-title{
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 320px){
+    .channel-log-box{
+        margin-top: 5%
+    }
+
+    .channel-login-register{
+        font-size: 19px;
+    }
+
+    .channel-title{
+        font-size: 31px;
+    }
+
 }

@@ -57,7 +57,7 @@ class sideDrawer extends Component{
         return this.state.channels.map((channel) =>{
             return(
                 <div className = 'channel-image'>
-                    <button onClick ={() => this.handleSetChannel(channel.channel_name)}>{channel.channel_name}</button>
+                    <button className = 'channel-button' onClick ={() => this.handleSetChannel(channel.channel_name)}>{channel.channel_name}</button>
                 </div>
             )
         })
@@ -68,8 +68,9 @@ class sideDrawer extends Component{
     return(
         <div className = 'side-drawer'>
             {this.renderChannels()}
-            <Link to ='/Channel' className = 'create-channel'>+</Link>
-            <button onClick={this.handletest}>test</button>
+            <div className = 'for-create-channel'>
+                <Link to ='/Channel' className = 'create-channel'>Create Channel</Link>
+            </div>
         </div>
     )
     }

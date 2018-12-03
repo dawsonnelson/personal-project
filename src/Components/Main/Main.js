@@ -13,6 +13,8 @@ import {updateRoom} from '../../ducks/reducer'
 import {updateUserName} from '../../ducks/reducer'
 import {updatePassWord} from '../../ducks/reducer'
 import {updateShowButton} from '../../ducks/reducer'
+// import deleteImage from '../assests/delete.png'
+// import editImage from '../assests/edit.png'
 import axios from 'axios';
 
 import io from "socket.io-client";
@@ -196,16 +198,16 @@ class Main extends Component {
                     if(message.live === null){
                         return(
                             <div className = 'message-box'>
-                                <span className = 'message'>{message.user} says {message.message}</span>
+                                <span className = 'message'>{message.user} : {message.message}</span>
                             </div>
                         )
                     } else {
                         return(
                             <div className = 'message-box'>
-                                <span className = 'message'>{message.user_id} says {message.message}</span>
+                                <span className = 'message'>{message.user_id} : {message.message}</span>
                                 <div className = 'delete-div'>
-                                    <button className = 'delete-button' onClick ={() => this.handleDelete(message.id)}></button>
-                                    <button className = 'edit-button' onClick={() => this.handleEdit(message.id)}></button>
+                                    <button className = 'delete-button' onClick ={() => this.handleDelete(message.id)}><img className = "delete-image" src="https://cdn.discordapp.com/attachments/202974546100224000/519004507821309952/unknown.png" alt=""/></button>
+                                    <button className = 'edit-button' onClick={() => this.handleEdit(message.id)}><img className = "edit-image" src="https://cdn.discordapp.com/attachments/202974546100224000/518998102468984833/edit-editor-pen-pencil-write-icon--4.png" alt = ""/></button>
                                 </div>
                             </div>
                         )
@@ -243,11 +245,11 @@ class Main extends Component {
                     <div className = 'right'>
                             <NavTop url = '/'/>             
                         <div className ='text-chat'>
-                            <input onChange={this.handleRoomChange}></input>
+                            {/* <input onChange={this.handleRoomChange}></input>
                             <button onClick= {this.sendRoomMessage}>Send</button>
                             <button onClick = {this.joinRoom}>Room</button>
                             <button onClick={this.handletest}>test</button>
-                            <button onClick={this.logoutButton}>logout</button>
+                            <button onClick={this.logoutButton}>logout</button> */}
                             <div className = 'show-messages'>
                                 {this.props.showButton ? <button onClick={this.handleButton}>See messages</button> : null}
                             </div>

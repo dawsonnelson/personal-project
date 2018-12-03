@@ -3,6 +3,9 @@
     height: 6vh;
     display: flex;
     flex-direction: row;
+    
+    border-bottom: 2px solid;
+
 }
 
 .menu-icon{
@@ -11,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: brown
+    background-color: #36393F
 }
 
 .channel-name{
@@ -19,12 +22,20 @@
     height: 100%;
     display: flex;
     align-items: center;
-    background-color: aqua
+    background-color: #36393F;
+    
 }
 
 .c{
-    margin-left: 10%
+    margin-left: 10%;
+    color: white
 }
+
+
+
+
+
+
 
 /* @media(max-width: 1024px){
     .menu-icon{

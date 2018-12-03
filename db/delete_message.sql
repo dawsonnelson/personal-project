@@ -1,3 +1,3 @@
-delete from messages where  id = $1
+delete from messages where  id = $1;
 
-select* from messages
+select * from messages

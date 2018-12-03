@@ -86,7 +86,7 @@ class InputBar extends Component{
                     <div className = 'inputs'>
                         <IconButton className = 'picture-input-button' variant="contained"><Icon/></IconButton>
                         <input className = 'text-input' onChange = {this.handleTextInput} value={this.props.inputBar}></input>
-                        <IconButton className = 'enter-button' variant="contained" onClick={this.handleCreateMessage}><Icon/></IconButton>  
+                        <IconButton className = 'enter-button' variant="contained" onClick={this.handleCreateMessage}><Icon><img className = "post-image" src="https://cdn.discordapp.com/attachments/202974546100224000/518999404573753354/1015742-200.png" alt=""/></Icon></IconButton>  
                     </div> 
                 </div>
         )

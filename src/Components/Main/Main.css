@@ -1,3 +1,10 @@
+
+.background{
+    width: 100vw;
+    height: 100vh;
+
+}
+
 .left{
     width: 0px;
     height: 100vh;
@@ -17,7 +24,7 @@
     /* display: flex; */
     width: 100vw;
     height: 82vh;
-    background-color: aquamarine;
+    background-color: #36393F;
     /* justify-content: center;
     align-items: center; */
     overflow: scroll
@@ -29,25 +36,261 @@
 }
 
 .message-box{
-    width: 95%;
+    width: 100%;
     height: 10%;
     display: flex;
     flex-wrap: wrap;
+    border-bottom: .5px solid white;
+    padding-right: 5px;
+    padding-left: 2px;
 }
 
 .message{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    width: 80%;
+
+}
+
+.delete-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20%
 }
 
 .delete-button{
-    background-color: black;
+    width: 45%;
+    height: 60%;
+    border-radius: 20px;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: white; */
+    /* background-color: red; */
+}
+
+img{
+    width: 100%;
+    height: 100%;
 }
 
 .edit-button{
-    background-color: red;
+    width: 45%;
+    height: 60%;
+    border-radius: 20px;
+    margin-left: 10%;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: white; */
+    /* background-color: black; */
 }
+
+@media (max-width: 2410px){
+    img.edit-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 10%;
+        height: 60%;
+    }
+
+    .edit-button{
+        width: 10%;
+        height: 60%;
+    }
+
+    .message{
+        font-size: 35px
+    }
+    
+}
+
+@media (max-width: 1440px){
+    img.edit-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 20%;
+        height: 60%;
+    }
+
+    .edit-button{
+        width: 20%;
+        height: 60%;
+    }
+
+    .message{
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 1024px){
+    img.edit-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 20%;
+        height: 50%;
+    }
+
+    .edit-button{
+        width: 20%;
+        height: 50%;
+    }
+
+    .message{
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 768px){
+    img.edit-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 25%;
+        height: 50%;
+    }
+
+    .edit-button{
+        width: 25%;
+        height: 50%;
+    }
+
+    .message{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 425px){
+    img.edit-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 125%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 50%;
+        height: 50%;
+    }
+
+    .edit-button{
+        width: 50%;
+        height: 50%;
+    }
+
+    .message{
+        font-size: 20px;
+    }
+    
+}
+
+@media(max-width: 375px){
+    .background{
+        width: 100%
+    }
+
+    img.edit-image{
+        width: 150%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 150%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 50%;
+        height: 50%;
+    }
+
+    .edit-button{
+        width: 50%;
+        height: 50%;
+    }
+
+    .message{
+        font-size: 20px;
+    }
+
+}
+
+@media(max-width: 320px){
+    .background{
+        width: 100vw;
+        height: 100vh;
+    
+    }
+
+    img.edit-image{
+        width: 200%;
+        height: 100%;
+    }
+
+    img.delete-image{
+        width: 200%;
+        height: 100%;
+    }
+
+    .delete-button{
+        width: 100%;
+        height: 45%;
+    }
+
+    .edit-button{
+        width: 100%;
+        height: 45%;
+    }
+
+    .message{
+        font-size: 20px;
+    }
+}
+
 
 /* @media(max-width: 1024px){
     .left{

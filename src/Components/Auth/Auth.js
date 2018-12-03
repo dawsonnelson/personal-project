@@ -66,7 +66,7 @@ class Auth extends Component {
         // console.log(process.env)
         return(
             <div id = 'app'>
-                <div className = 'background'>
+                <div className = 'auth-background'>
                     <div className = 'log-box'>
                         <img className = 'logo' src ={''} alt = ''></img>
                         <div>
@@ -94,7 +94,7 @@ function mapStateToProps(duckState) {
     return {
         userName: duckState.userName,
         passWord: duckState.passWord,
-        userId: duckState.userId
+        userId: duckState.userId,
     }
 }
 
